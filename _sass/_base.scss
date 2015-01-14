@@ -108,7 +108,13 @@ a {
     }
 }
 
-
+/**
+ * Inline styles
+ */
+em {
+    font-family: $serif-font-family;
+    font-style: normal;
+}
 
 /**
  * Blockquotes
