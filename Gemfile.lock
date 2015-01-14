@@ -61,11 +61,11 @@ GEM
     json (1.8.2)
     kramdown (1.5.0)
     liquid (2.6.1)
-    listen (2.8.4)
+    listen (2.8.5)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    markdown-highlight-extended-filter (0.0.1)
+    markdown-highlight-extended-filter (1.0.0)
       github-linguist
       html-pipeline
       pygments.rb
@@ -105,4 +105,4 @@ DEPENDENCIES
   github-markdown
   jekyll (~> 2.5.3)
   jekyll-html-pipeline
-  markdown-highlight-extended-filter
+  markdown-highlight-extended-filter (= 1.0.0)

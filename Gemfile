@@ -5,5 +5,5 @@ gem 'jekyll-html-pipeline'
 gem 'github-linguist'
 gem 'github-markdown'
 
-gem 'markdown-highlight-extended-filter'
+gem 'markdown-highlight-extended-filter', "1.0.0"
 
