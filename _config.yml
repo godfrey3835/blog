@@ -10,5 +10,14 @@ github_username:  chitsaou
 
 permalink: :year/:month/:day/:title/
 
+gems:
+- jekyll-html-pipeline
+- markdown-highlight-extended-filter
+
 # Build settings
-markdown: kramdown
+markdown: HTMLPipeline
+
+html_pipeline:
+  filters:
+    - "MarkdownHighlightExtendedFilter"
+    - "markdownfilter"
