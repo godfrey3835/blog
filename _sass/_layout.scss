@@ -174,7 +174,7 @@
     list-style: none;
 
     > li {
-        margin-bottom: $spacing-unit;
+        margin-bottom: $spacing-unit / 2;
     }
 }
 
@@ -185,7 +185,8 @@
 
 .post-link {
     display: block;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 300;
 }
 
 
@@ -200,7 +201,7 @@
 .post-title {
     font-size: 42px;
     letter-spacing: -1px;
-    line-height: 1;
+    line-height: 1.2;
 
     @include media-query($on-laptop) {
         font-size: 36px;
