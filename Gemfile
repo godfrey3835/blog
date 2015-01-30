@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'jekyll', '~> 2.5.3'
 gem 'jekyll-html-pipeline'
-gem 'rack-jekyll'
+gem 's3_website'
 gem 'github-linguist'
 gem 'github-markdown'
 
