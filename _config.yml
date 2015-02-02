@@ -1,5 +1,6 @@
 # Site settings
 title: Yu-Cheng Chuang
+author: Yu-Cheng Chuang
 email: ducksteven@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Yu-Cheng Chuang's personal blog.
