@@ -1,7 +1,6 @@
 ---
 layout: page
 title: About
-permalink: /about/
 ---
 
 Hi, I am Yu-Cheng Chuang, a.k.a. chitsaou / yorkxin / 鴨七. I live in Taipei, Taiwan.
