@@ -23,7 +23,7 @@ table td:nth-child(3) {
 
 | 名 | 何 | $ |
 |----|----|---|
-| [Sublime Text 2](http://www.sublimetext.com/) | 很好很強大的 code 編輯器 | Free / US$70 |
+| [Sublime Text 3](http://www.sublimetext.com/) | 很好很強大的 code 編輯器 | Free / US$70 |
 | [MacVim](https://code.google.com/p/macvim/) | GUI 版的 VIM | Free |
 | [TextWrangler](http://www.barebones.com/products/textwrangler/) | code 編輯器，特色在於可以處理各種編碼 | Free |
 | [Mou](http://mouapp.com/) | Markdown 編輯器，內建即時預覽，惟缺 GFM | Free (Beta 版) |
@@ -31,7 +31,7 @@ table td:nth-child(3) {
 
 此外在 OS X 的編輯區按鍵（Home / End / PgUp / PgDn）行為跟 Windows 不同，我比較喜歡 Windows 的行為，所以有改裝 OS X 的按鍵規則，請參考 https://gist.github.com/chitsaou/3422794 。
 
-### SublimeText 2
+### SublimeText 3
 
 我的設定檔： https://gist.github.com/chitsaou/3422794
 
@@ -39,6 +39,7 @@ table td:nth-child(3) {
 
 | 名 | 何 |
 |----|----|
+| [Railscasts Extended](https://github.com/jzelenkov/sublime-railscasts-extended) | 目前使用的 editor theme |
 | [SublimeLiner](https://github.com/SublimeLinter/SublimeLinter-for-ST2) | 自動在 SublimeText 裡面做 Code Linting (含 jsHint 整合) |
 | [CTags](https://github.com/SublimeText/CTags) | 自動在 SublimeText 裡面做 [CTags](http://ctags.sourceforge.net) code 索引 |
 
