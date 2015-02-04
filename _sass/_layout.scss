@@ -234,3 +234,17 @@
         }
     }
 }
+
+.share-bar {
+  text-align: left;
+  line-height: $base-line-height;
+  margin-bottom: $spacing-unit / 2;
+
+  .share-button {
+    display: inline-block;
+
+    &.twitter-share > iframe {
+      vertical-align: bottom;
+    }
+  }
+}
