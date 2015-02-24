@@ -23,3 +23,6 @@ I love Japan and I'm also an Anime fan.
 * JavaScript, jQuery, CoffeeScript
 * HTML + CSS (SCSS / Compass)
 
+---
+
+Test
