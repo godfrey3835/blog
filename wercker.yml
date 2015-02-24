@@ -14,7 +14,6 @@ build:
         code: bundle exec jekyll build --trace
 deploy:
   steps:
-    - wercker/s3sync@2.0.2
     - s3sync:
         key-id: $S3_KEY
         key-secret: $S3_SECRET
