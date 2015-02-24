@@ -6,5 +6,5 @@ gem 's3_website'
 gem 'github-linguist'
 gem 'github-markdown'
 
-gem 'markdown-highlight-extended-filter', "1.0.0"
+gem 'markdown-highlight-extended-filter', "1.1.0"
 
