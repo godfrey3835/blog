@@ -1,0 +1,25 @@
+box: wercker/ruby
+
+build:
+  steps:
+    - wercker/install-packages@0.0.4
+    - install-packages:
+        packages: libicu-dev cmake
+
+    # Run a smart version of bundle install
+    # which improves build execution time of
+    # future builds
+    - bundle-install
+
+    # A custom script step
+    # that actually builds the jekyll site
+    - script:
+        name: generate site
+        code: bundle exec jekyll build --trace
+deploy:
+  steps:
+    - wercker/s3sync@2.0.2
+    - s3sync:
+        key-id: $S3_KEY
+        key-secret: $S3_SECRET
+        bucket-url: $S3_BUCKET
