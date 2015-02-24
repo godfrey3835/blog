@@ -19,3 +19,4 @@ deploy:
         key-secret: $S3_SECRET
         bucket-url: $S3_BUCKET
         source-dir: _site/
+        opts: -v --acl-public --cf-invalidate
