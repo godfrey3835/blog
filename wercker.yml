@@ -2,10 +2,6 @@ box: wercker/ruby
 
 build:
   steps:
-    - wercker/install-packages@0.0.4
-    - install-packages:
-        packages: libicu-dev cmake
-
     # Run a smart version of bundle install
     # which improves build execution time of
     # future builds

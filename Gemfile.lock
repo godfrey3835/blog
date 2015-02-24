@@ -10,7 +10,6 @@ GEM
     blankslate (2.1.2.4)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    charlock_holmes (0.7.3)
     classifier-reborn (2.0.3)
       fast-stemmer (~> 1.0)
     coffee-script (2.3.0)
@@ -23,15 +22,9 @@ GEM
       deep_merge (= 1.0.0)
     deep_merge (1.0.0)
     dotenv (1.0.2)
-    escape_utils (1.0.1)
     execjs (2.2.2)
     fast-stemmer (1.0.2)
     ffi (1.9.6)
-    github-linguist (4.2.6)
-      charlock_holmes (~> 0.7.3)
-      escape_utils (~> 1.0.1)
-      mime-types (>= 1.19)
-      rugged (~> 0.22.0b4)
     github-markdown (0.6.8)
     hitimes (1.2.2)
     html-pipeline (1.11.0)
@@ -74,7 +67,6 @@ GEM
       html-pipeline
       rouge
     mercenary (0.3.5)
-    mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
     nokogiri (1.6.5)
@@ -90,7 +82,6 @@ GEM
       ffi (>= 0.5.0)
     redcarpet (3.2.2)
     rouge (1.8.0)
-    rugged (0.22.0b5)
     s3_website (2.7.5)
       colored (= 1.2)
       configure-s3-website (= 1.6.0)
@@ -112,7 +103,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  github-linguist
   github-markdown
   jekyll (~> 2.5.3)
   jekyll-html-pipeline
