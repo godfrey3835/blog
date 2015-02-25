@@ -8,7 +8,7 @@ categories: []
 comments: true
 ---
 
-繼續之前的作業，把 Blog 搬到 S3 之後，最麻煩的就是要手動用 command line 寫文章、上傳（deploy）。這是我以前放棄 Octopress 改用 Logdown 的緣故。
+繼續之前的作業，把 Blog 搬到 S3 之後，最麻煩的就是要手動用 command line 寫文章、上傳（deploy）。這是我以前放棄 Octopress 改用 Logdown 的原因。
 
 但是之前看到 Hugo（Go 的 Blog Generator）推薦用 [Wercker](http://wercker.com) 來做雲端 deploy，又前幾天看到 [Bruce 大大的教學文](http://toyroom.bruceli.net/tw/2015/02/22/move-toy-room-blog-to-s3-with-jekyll-and-wercker.html)就覺得似乎很方便，所以也來試試看了，沒想到真的好簡單啊。
 
