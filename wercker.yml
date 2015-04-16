@@ -2,9 +2,9 @@ box: ruby
 
 build:
   steps:
-    # Run a smart version of bundle install
-    # which improves build execution time of
-    # future builds
+    - install-packages:
+        packages: nodejs
+
     - bundle-install
 
     # A custom script step
