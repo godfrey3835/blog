@@ -31,10 +31,14 @@ wercker.yml 是 Wercker 的 deploy 設定檔，教 Wercker 要如何 build & dep
 根據官方指南，可以做出這樣的 wercker.yml：
 
 ```yml
-box: wercker/rvm
+box: ruby
 
 build:
   steps:
+    # must before bundle-install
+    - install-packages:
+        packages: nodejs
+
     # Run a smart version of bundle install
     # which improves build execution time of
     # future builds
@@ -57,7 +61,6 @@ deploy:
 
 幾個地方要注意：
 
-* box 要選用 [wercker/rvm](https://app.wercker.com/#applications/52c6d6e1728cc898720001e3/tab/details) 而非 [wercker/ruby](https://app.wercker.com/#applications/51ab917fdf8960ba45004497/tab/details)，前者有在追 Ruby 新版本，後者很久沒有更新了。
 * Run bundle 要特別使用 `bundle-install` 這個 build step，他會 cache 住 installed gems
 * s3sync 的設定 key 是 dash 不是 underscore，有的文件會寫成 underscore
 * 不要把真正的 S3 Key 和 S3 Secret 帳號密碼寫死在 wercker.yml 裡面，請使用 $ 開頭的環境變數，之後在 Wercker 設定。
@@ -65,29 +68,14 @@ deploy:
 * 如果你有上 CloudFront 的話，記得加 `--cf-invalidate` 這個 option，他會幫你去 CF 做 cache invalidation。
 * 其他 S3sync 設定檔可以到 [S3cmd 官方網站](http://s3tools.org/s3cmd-sync) 查詢。
 * 記得要在 Jekyll 的 `_config.yml` 裡面把 wercker.yml 給 exclude 掉，不然會跑進 build dir 裡面。
+* 安裝 node.js 是為了跑 Jekyll (depends on coffee-script, depends on execjs, depends on a JavaScript runtime)
+* 記得 install packages 要在 bundle install 的前面。
 
-此外 wercker/rvm box 會有預設一個 Ruby 版本，目前是 Ruby 2.0.0。如果你要特別指定 Ruby 版本，就在 Repo 的 root dir 加一個 `.ruby-version` 裡面寫版本號就可以了，跟一般的 Ruby project 一樣。
+此外最好在 `.ruby-version` 裡面指定你要的 Ruby 版本，跟一般的 Ruby project 一樣。
+
+[install-package](https://app.wercker.com/#applications/51c829ea3179be4478002168/tab/details) 是用來在作業系統裡面安裝第三方軟體的，如果要安裝複數個軟體的話，用空格分開就可以了。附帶一提，這裡使用的是 Docker 的 [Ruby container](https://registry.hub.docker.com/_/ruby/)，跑的是 Debian。
 
 設定檔完成之後，要 commit 進去 git 裡面。現在可以先 push 上去，讓他 build 看看。
-
-如果你的 Jekyll blog 很不巧需要 install packages，像是我的 blog 以前用到 github-linguist 所以需要 install `libicu-dev` 和 `cmake`（現在不用了），那麼就要使用 [wercker/install-package](https://app.wercker.com/#applications/51c829ea3179be4478002168/tab/details) 這個 step 來設定：
-
-```yml
-build:
-  steps:
-    - install-packages:
-        packages: libicu-dev cmake
-
-    - bundle-install
-
-    - script:
-        name: generate site
-        code: bundle exec jekyll build --trace
-```
-
-記得 install packages 要在 bundle install 的前面。
-
-不過這個 package install 似乎不會 cache，每次 build 都重新安裝的樣子（？
 
 ## Deploy 的設定
 
@@ -148,7 +136,7 @@ Build 完成要 Deploy 到 S3，但是首先 S3 要設定 deploy user。
 
 ## 實際 Deploy
 
-要 Deploy 的時候，是必須從 successful build 才可以 deploy 的，想來也是很理所當然，沒有 build 過的 project 要怎麼 deploy？至於在哪裡按我就不說了，很大一顆很好找。
+要 Deploy 的時候，是必須從 successful build 才可以 deploy 的，想來也是很理所當然，沒有 build 過的 project 要怎麼 deploy？至於在哪裡按我就不用說了，很大一顆很好找。
 
 ---
 
@@ -165,3 +153,9 @@ Build 完成要 Deploy 到 S3，但是首先 S3 要設定 deploy user。
 心臟大顆一點的話可以開 auto deploy master branch to production，這樣 push 上去就全自動了。當然，auto deploy staging branch to staging 也是很好用的。
 
 最後要說清楚的是，我的 code 是上傳到 BitBucket，因為我要放在 private project。如果是直接上 GitHub 的話，應該不需要這一套，直接 GitHub Pages 就自動 build 了。
+
+---
+
+## 更新紀錄
+
+* 2015/04/17 Wercker 升級變成 Docker-based，更新原本失效的設定檔。
