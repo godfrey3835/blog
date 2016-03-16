@@ -32,4 +32,3 @@ exclude:
   - Gemfile.lock
   - s3_website.yml
   - wercker.yml
-
