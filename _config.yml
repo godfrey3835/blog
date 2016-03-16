@@ -13,7 +13,7 @@ feedburner_url: https://feeds.feedburner.com/chitsaou
 
 google_analytics_id: UA-27155466-1
 
-permalink: /posts/:year/:month/:day/:title
+permalink: /posts/:year/:month/:day/:title/
 
 gems:
 - jekyll-html-pipeline
