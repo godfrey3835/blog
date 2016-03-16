@@ -14,6 +14,9 @@ layout: default
 
 </div>
 
-{% include _share.html page=page %}
+{% comment %} Workaround: the trailing slash problem; Facebook Like must use unslashed URL {% endcomment %}
+{% capture unslashed_url %}{{ page.url | remove_trailing_slash }}{% endcapture %}
+
+{% include _share.html url=unslashed_url %}
 {% include _adsense.html %}
 {% include _disqus.html page=page %}
