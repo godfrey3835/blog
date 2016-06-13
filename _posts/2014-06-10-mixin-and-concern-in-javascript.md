@@ -23,31 +23,36 @@ CoffeeScript 也沒能很好解決這個問題。不過在 [CoffeeScript Cookboo
 
 寫起來會像這樣：
 
-```coffeescript concern.js.coffee
+```coffeescript
+# concern.js.coffee
 Function::include = (mixin) ->
   _.extend(this.prototype, mixin)
 ```
 
-```coffeescript duck.js.coffee
+```coffeescript
+# duck.js.coffee
 this.Duck =
   quake: ->
     "quake quake"
-  
+
   walk: ->
     "walks like a duck"
 ```
 
-```coffeescript yazi.js.coffee
+```coffeescript
+# yazi.js.coffee
 class Yazi
   @include Duck
 ```
 
-```coffeescript kamo.js.coffee
+```coffeescript
+# kamo.js.coffee
 class Kamo # "duck" in Japanese
   @include Duck
 ```
 
-```coffeescript app.js.coffee
+```coffeescript
+# app.js.coffee
 yazi = new Yazi()
 kamo = new Kamo()
 
@@ -61,12 +66,13 @@ kamo.quake() #=> "quake"
 
 要注意的是，因為我們專案用的是 CoffeeScript，所以寫起來像 `@include` 這樣子看起來很簡潔有力，如果換成 JavaScript 的話會變得比較醜一點，以下是 CoffeScript 編出來的結果：
 
-```javascript kamo.js
+```javascript
+// kamo.js
 var Kamo = (function() {
   var Kamo = function() {};
 
   Kamo.include(Duck);
-  
+
   return Kamo;
 })();
 
@@ -78,7 +84,8 @@ kamo.quake(); //=> "quake"
 
 當然也可以弄得像 [ActiveSupport::Concern](http://api.rubyonrails.org/classes/ActiveSupport/Concern.html)，我是說 `included` callback:
 
-```coffeescript concern.js.coffee
+```coffeescript
+# concern.js.coffee
 Function::include = (mixin) ->
   functions = _.omit(mixin, "included", "classFunctions")
 
@@ -92,13 +99,14 @@ Function::include = (mixin) ->
     mixin.included.call(mixin, this)
 ```
 
-```coffeescript duck.js.coffee
+```coffeescript
+# duck.js.coffee
 this.Duck =
   quake: ->
     "quake quake"
-  
+
   walk: ->
-    "walks like a duck" 
+    "walks like a duck"
 
   included: (base) ->
     console.log "mixing this class as a duck: #{base}"
@@ -107,12 +115,14 @@ this.Duck =
     kindOfDuck: -> true
 ```
 
-```coffeescript kamo.js.coffee
+```coffeescript
+# kamo.js.coffee
 class Kamo
   @include Duck
 ```
 
-```js app.js
+```js
+// app.js
 // Console prints "mixing this class as a duck: function Kamo() { ..."
 Kamo.kindOfDuck() //=> true
 

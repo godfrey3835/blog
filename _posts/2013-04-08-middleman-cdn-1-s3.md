@@ -49,7 +49,8 @@ CDN 的部份[第二篇](http://blog.yorkxin.org/2013/04/08/middleman-cdn-2-clou
 
 在開始部署之前，要先確定 Middleman Build 出來的東西是我要的。我做了以下設定：
 
-```ruby config.rb
+```ruby
+# config.rb
 configure :build do
   activate :asset_hash
   activate :gzip
@@ -135,7 +136,7 @@ end
 
 設定方式如下，在 `config.rb` 裡面寫：
 
-```ruby config.rb
+```ruby
 # Activate sync extension
 activate :sync do |sync|
   sync.fog_provider = 'AWS'

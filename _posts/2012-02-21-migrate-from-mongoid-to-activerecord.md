@@ -40,7 +40,8 @@ comments: true
 
 首先在 `Gemfile` 加入
 
-```ruby Gemfile
+```ruby
+# Gemfile
 gem 'mysql2'
 ```
 
@@ -48,7 +49,8 @@ gem 'mysql2'
 
 先別砍掉 `mongoid` 系列的 Gem ，之後搬資料會用到。但是 Mongoid 這個 gem 一但安裝上去，就會覆寫掉 Rails 的 ORM 設定。如果需要暫時讓兩個 ORM 都可以使用（例如：搬資料的時候），就必須在 `config/application.rb` 裡面明確指定[（參考）][stackoverflow-ar-generators]：
 
-```ruby config/application.rb
+```ruby
+# config/application.rb
 config.generators do |g|
   g.orm :active_record
 end
@@ -214,7 +216,8 @@ Referencing counter 我指的是「topic 有 replies ，**每次增刪都把 cou
 
 具體的做法是透過 `increment_counter` [（參考）][increment-counter] ：
 
-```ruby app/models/topic.rb
+```ruby
+# app/models/topic.rb
 class Topic < ActiveRecord::Base
   def visit
     self.class.increment_counter(:visit_count, self.id)
@@ -224,7 +227,8 @@ end
 
 在 Controller 用 after_filter 去 hook ：
 
-```ruby app/controllers/topics_controller.rb
+```ruby
+# app/controllers/topics_controller.rb
 class TopicsController < ApplicationController
   after_filter :only => :show do
     @topic.visit

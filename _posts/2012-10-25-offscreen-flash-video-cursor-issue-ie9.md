@@ -17,7 +17,7 @@ I'm recently working on an issue about embedded Flash video on Internet Explorer
 
 When you have an embedded Flash movie, text cursors in text inputs (e.g. `textarea` and `input[type=text]`) may be out of user's control, if the Flash is out of the screen, and the embedded code uses `wmode=transparent` or `wmode=opaque`.
 
-I've put [reduced code here](http://jsfiddle.net/U8C4D/7/). If you scroll down until the Flash is out of the screen, and try to set text cursor by mouse click or keyboard arrows, the first time it is moved, but if you continue pressing arrow keys or clicking, the cursor seems not moving. A typical use case is, when you're typing in the text box, and try to move cursor by arrow keys, then you'll see that the cursor does not move. 
+I've put [reduced code here](http://jsfiddle.net/U8C4D/7/). If you scroll down until the Flash is out of the screen, and try to set text cursor by mouse click or keyboard arrows, the first time it is moved, but if you continue pressing arrow keys or clicking, the cursor seems not moving. A typical use case is, when you're typing in the text box, and try to move cursor by arrow keys, then you'll see that the cursor does not move.
 
 Actually the cursor **does** move, but does not visually move to the new position; you're still seeing it at the old position. The cursor stops blinking, and may or may not be visible. If you then start typing something, the new characters will be inserted at the "new position".
 
@@ -46,9 +46,9 @@ First, you need [swfmill](http://swfmill.org), a tool to make simple Flash movie
     $ brew link freetype
     $ brew install swfmill
 
-Create a file with the following content (code modified from [swfmill's doc](http://swfmill.org/doc/using-swfmill.html)):
+Create a file `1px.xml` with the following content (code modified from [swfmill's doc](http://swfmill.org/doc/using-swfmill.html)):
 
-```xml 1px.xml
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <movie width="1" height="1" framerate="12">
   <background color="#ffffff"/><!-- or a color matching your background color -->

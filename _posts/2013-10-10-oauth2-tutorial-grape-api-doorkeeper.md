@@ -25,7 +25,7 @@ comments: true
     * **Access Token** (Model) - 需要有個 Model 來儲存 Access Token 。
     * **Authorization Endpoint** - 這裡來處理 Auth Code Grant 和 Implicit Grant 。
     * **Token Endpoint** - 這裡來真正核發 Token 。
-* **Resource Server** - 給 App 存取的地方，也就是 API ，一部份需要 Access Token 才能存取的叫做 Protected Resource 。 
+* **Resource Server** - 給 App 存取的地方，也就是 API ，一部份需要 Access Token 才能存取的叫做 Protected Resource 。
     * **Resource Server 上面的 Guard** - 用途是「保護某些 API ，必須要帶 Access Token 才能存取」，俗稱保全。
 
 本文使用這些套件來實作：
@@ -63,7 +63,8 @@ comments: true
 
 安裝 Doorkeeper Gem
 
-```ruby Gemfile
+```ruby
+# Gemfile
 gem 'doorkeeper'
 ```
 
@@ -77,11 +78,13 @@ gem 'doorkeeper'
 
 再照他文件說的去接 Devise 來認證 Resource Owner：
 
-```ruby config/initializers/doorkeeper.rb
-  # 認證 Resource Owner 的方法，直接接 Devise
-  resource_owner_authenticator do
-    current_user || warden.authenticate!(:scope => :user)
-  end
+```ruby
+# config/initializers/doorkeeper.rb
+
+# 認證 Resource Owner 的方法，直接接 Devise
+resource_owner_authenticator do
+  current_user || warden.authenticate!(:scope => :user)
+end
 ```
 
 這樣就好了。
@@ -175,44 +178,47 @@ Rack::OAuth2 這個 Rack Middleware 在安裝 (`use`) 的時候要傳一個 bloc
 
 那麼就來安裝這個 Middleware 吧，但只拿來 fetch access token string ：
 
-```ruby api/concerns/api_guard.rb
-  included do
-    # OAuth2 Resource Server Authentication
-    use Rack::OAuth2::Server::Resource::Bearer, 'The API' do |request|
-      # The authenticator only fetches the raw token string
+```ruby
+# api/concerns/api_guard.rb
+included do
+  # OAuth2 Resource Server Authentication
+  use Rack::OAuth2::Server::Resource::Bearer, 'The API' do |request|
+    # The authenticator only fetches the raw token string
 
-      # Must yield access token to store it in the env
-      request.access_token
-    end
+    # Must yield access token to store it in the env
+    request.access_token
   end
+end
 ```
 
 ### Step 4.2: 做一個 private method 來取出先前拿到的 Access Token (String)
 
 前文提到 Middleware 會把 Token 存在 `request.env` 裡面，具體就是 `request.env[Rack::OAuth2::Server::Resource::ACCESS_TOKEN]` ，所以就把它拿出來吧。
 
-```ruby api/concerns/api_guard.rb
-  helpers do
-    private
-    def get_token_string
-      # The token was stored after the authenticator was invoked.
-      # It could be nil. The authenticator does not check its existence.
-      request.env[Rack::OAuth2::Server::Resource::ACCESS_TOKEN]
-    end
+```ruby
+# api/concerns/api_guard.rb
+helpers do
+  private
+  def get_token_string
+    # The token was stored after the authenticator was invoked.
+    # It could be nil. The authenticator does not check its existence.
+    request.env[Rack::OAuth2::Server::Resource::ACCESS_TOKEN]
   end
+end
 ```
 
 ### Step 4.3: 做一個 private method 來把 Token String 變成 Instance
 
 Token String 只是單純的字串，還需要去 Database 裡面撈才能換成 Instance 。參考了 `doorkeeper_for` 的做法，我直接呼叫它的 `AccessToken.authenticate` ，撈不到會直接回 `nil`：
 
-```ruby api/concerns/api_guard.rb
-  helpers do
-    private
-    def find_access_token(token_string)
-      Doorkeeper::AccessToken.authenticate(token_string)
-    end
+```ruby
+# api/concerns/api_guard.rb
+helpers do
+  private
+  def find_access_token(token_string)
+    Doorkeeper::AccessToken.authenticate(token_string)
   end
+end
 ```
 
 ### Step 4.4: 做一個 service 來驗證 Access Token 是否合法
@@ -221,13 +227,14 @@ OAuth2::AccessTokenValidationService 我放在 app/service 裡面，其中會驗
 
 在 Grape Endpoint 放一個 `validate_access_token` helper 來方便處理這件事，它會直接回傳結果，也就是上述四個之中的一個， caller 就可以根據驗證結果決定要怎麼回 response 。
 
-```ruby api/concerns/api_guard.rb
-  helpers do
-    private
-    def validate_access_token(access_token, scopes)
-      OAuth2::AccessTokenValidationService.validate(access_token, scopes: scopes)
-    end
+```ruby
+# api/concerns/api_guard.rb
+helpers do
+  private
+  def validate_access_token(access_token, scopes)
+    OAuth2::AccessTokenValidationService.validate(access_token, scopes: scopes)
   end
+end
 ```
 
 在 Service 裡面要驗證 scopes ，我的演算法其實很簡單，就是集合比較而已；有的網站會有「A scope 包含 B scope」的設計，如果要做成這樣的話，就不能用單純的集合比較了。純集合比較的演算法是這樣：
@@ -235,21 +242,22 @@ OAuth2::AccessTokenValidationService 我放在 app/service 裡面，其中會驗
 * 如果沒有要求任何 scopes ，那其實任何 Access Token 都符合，就回 true。
 * 如果有要求任何 scopes ，那麼「授權過的 scopes」就得是「所需的 scopes」的宇集，剛好 Ruby 有內建 Set 這個資料結構，把兩個 Array 都轉成 Set 就能方便比較了。
 
-```ruby app/services/oauth2/access_token_validation_service.rb
-    protected
-    def sufficent_scope?(token, scopes)
-      if scopes.blank?
-        # if no any scopes required, the scopes of token is sufficient.
-        return true
-      else
-        # If there are scopes required, then check whether
-        # the set of authorized scopes is a superset of the set of required scopes
-        required_scopes = Set.new(scopes)
-        authorized_scopes = Set.new(token.scopes)
+```ruby
+# app/services/oauth2/access_token_validation_service.rb
+protected
+def sufficent_scope?(token, scopes)
+  if scopes.blank?
+    # if no any scopes required, the scopes of token is sufficient.
+    return true
+  else
+    # If there are scopes required, then check whether
+    # the set of authorized scopes is a superset of the set of required scopes
+    required_scopes = Set.new(scopes)
+    authorized_scopes = Set.new(token.scopes)
 
-        return authorized_scopes >= required_scopes
-      end
-    end
+    return authorized_scopes >= required_scopes
+  end
+end
 ```
 
 ### Step 4.5: 製作 Guard 來擋住沒有合法 Access Token 的 Requests
@@ -270,35 +278,36 @@ OAuth2::AccessTokenValidationService 我放在 app/service 裡面，其中會驗
     * 若驗證結果不是 VALID ，則丟出相對應的 Exceptions
     * 照 spec ，如果是因為 scope 不足，則是回 403 加上 Insufficient Scope Error ，其他情況則是要回 401 加上 Invalid Token Error
 
-```ruby app/api/concerns/api_guard.rb
-  helpers do
-    def guard!(scopes: [])
-      token_string = get_token_string()
+```ruby
+# app/api/concerns/api_guard.rb
+helpers do
+  def guard!(scopes: [])
+    token_string = get_token_string()
 
-      if token_string.blank?
-        raise MissingTokenError
+    if token_string.blank?
+      raise MissingTokenError
 
-      elsif (access_token = find_access_token(token_string)).nil?
-        raise TokenNotFoundError
+    elsif (access_token = find_access_token(token_string)).nil?
+      raise TokenNotFoundError
 
-      else
-        case validate_access_token(access_token, scopes)
-        when Oauth2::AccessTokenValidationService::INSUFFICIENT_SCOPE
-          raise InsufficientScopeError.new(scopes)
+    else
+      case validate_access_token(access_token, scopes)
+      when Oauth2::AccessTokenValidationService::INSUFFICIENT_SCOPE
+        raise InsufficientScopeError.new(scopes)
 
-        when Oauth2::AccessTokenValidationService::EXPIRED
-          raise ExpiredError
+      when Oauth2::AccessTokenValidationService::EXPIRED
+        raise ExpiredError
 
-        when Oauth2::AccessTokenValidationService::REVOKED
-          raise RevokedError
+      when Oauth2::AccessTokenValidationService::REVOKED
+        raise RevokedError
 
-        when Oauth2::AccessTokenValidationService::VALID
-          @current_user = User.find(access_token.resource_owner_id)
+      when Oauth2::AccessTokenValidationService::VALID
+        @current_user = User.find(access_token.resource_owner_id)
 
-        end
       end
     end
   end
+end
 ```
 
 ### Step 4.6: 把 Exception 轉送到 Rack::OAuth2 內建的錯誤回應方式
@@ -309,15 +318,15 @@ OAuth2::AccessTokenValidationService 我放在 app/service 裡面，其中會驗
 
 * Bearer::ErrorMethods 有內建一組 `error_description` 的預設值，根據不同的 `error` code 去對應
   * 但只有在 Rack 的 authenticator 裡面使用相對應的 helper method (如 `insufficiet_scope!`) 才會填入
-  * **直接 call 這個 middleware 則不會自動填入錯誤訊息** 
+  * **直接 call 這個 middleware 則不會自動填入錯誤訊息**
   * 所以必須手動填入
 * 沒給 Token 要視為「Client 不知道要 Authenticate」
   * 所以 `error` code 不屬於 Spec 裡面定義的任何一個
   * `error_description` 也不需要給。
   * 使用 Bearer::Unauthorized 回 401
-* Token 找不到、過期 (Expired) 、被撤銷 (Revoked) 的 `error` code 都是 `invalid_token` 
-  * 其實可以用同一個 `error_description` 
-  * 我的寫法會把三種情況分別丟不同的 Exception，並填入不同的 `error_description` 
+* Token 找不到、過期 (Expired) 、被撤銷 (Revoked) 的 `error` code 都是 `invalid_token`
+  * 其實可以用同一個 `error_description`
+  * 我的寫法會把三種情況分別丟不同的 Exception，並填入不同的 `error_description`
   * 你實作的時候可以用同一個，這並不會違反 spec
   * 使用 Bearer::Unauthorized 回 401
 * Token 的 scope 不足會使用 `insufficient_scope` 的 `error`
@@ -328,59 +337,62 @@ OAuth2::AccessTokenValidationService 我放在 app/service 裡面，其中會驗
 * 這個實作沒有填入 `error_uri` 和 `realm` ，其 `realm` 會使用 Rack::OAuth2 內建的。
 
 
-```ruby app/api/concerns/api_guard.rb
-  included do |base|
-    install_error_responders(base)
+```ruby
+# app/api/concerns/api_guard.rb
+included do |base|
+  install_error_responders(base)
+end
+
+# ...
+
+module ClassMethods
+  private
+  def install_error_responders(base)
+    error_classes = [ MissingTokenError, TokenNotFoundError,
+                      ExpiredError, RevokedError, InsufficientScopeError]
+    base.send :rescue_from, *error_classes, oauth2_bearer_token_error_handler
   end
-  
-  # ... 
 
-  module ClassMethods
-    private
-    def install_error_responders(base)
-      error_classes = [ MissingTokenError, TokenNotFoundError,
-                        ExpiredError, RevokedError, InsufficientScopeError]
-      base.send :rescue_from, *error_classes, oauth2_bearer_token_error_handler
-    end
+  def oauth2_bearer_token_error_handler
+    Proc.new {|e|
+      response = case e
+        when MissingTokenError
+          Rack::OAuth2::Server::Resource::Bearer::Unauthorized.new
 
-    def oauth2_bearer_token_error_handler
-      Proc.new {|e|
-        response = case e
-          when MissingTokenError
-            Rack::OAuth2::Server::Resource::Bearer::Unauthorized.new
+        when TokenNotFoundError
+          Rack::OAuth2::Server::Resource::Bearer::Unauthorized.new(
+            :invalid_token,
+            "Bad Access Token.")
+        # etc. etc.
+        end
 
-          when TokenNotFoundError
-            Rack::OAuth2::Server::Resource::Bearer::Unauthorized.new(
-              :invalid_token,
-              "Bad Access Token.")
-          # etc. etc.
-          end
-
-        response.finish
-      }
-    end
+      response.finish
+    }
   end
+end
 ```  
 
 ### Step 4.7: 製作用來擋全 API 的 Guard
 
 這是仿 `doorkeeper_for :all` 的，用途是「這個 API 底下的所有 Endpoints 都要擋」。在 Grape 的世界裡面，它要是放在 Grape::API 裡面的 class method ，所以我寫在 ClassMethods module 裡面，一 call 就是塞 before filter 進去，它底下每個 endpoint 都會過這個 filter。
 
-```ruby app/api/concerns/api_guard.rb
-  module ClassMethods
-    def guard_all!(scopes: [])
-      before do
-        guard! scopes: scopes
-      end
+```ruby
+# app/api/concerns/api_guard.rb
+module ClassMethods
+  def guard_all!(scopes: [])
+    before do
+      guard! scopes: scopes
     end
   end
+end
 ```
 
 ### Step 4.8: 現在可以用 OAuth 2 來擋 API 了
 
 單獨擋一個 Endpoint:
 
-```ruby app/api/v1/sample_api.rb
+```ruby
+# app/api/v1/sample_api.rb
 module V1
   class SampleAPI < Base
     get "secret" do
@@ -393,7 +405,8 @@ end
 
 擋一個 API 底下所有 Endpoints:
 
-```ruby app/api/v1/secret_api.rb
+```ruby
+# app/api/v1/secret_api.rb
 module V1
   class SecretAPI < Base
     guard_all!  # Requires a valid OAuth 2 Access Token to use all Endpoints
@@ -413,7 +426,7 @@ end
 
 不帶 Token 就去打 API 會被拒絕：
 
-```text Terminal
+```text
 $ curl -i http://localhost:9999/api/v1/secret/secret1.json
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer realm="The API"
@@ -425,7 +438,7 @@ Cache-Control: no-cache
 
 附 Token 再去打 API 就沒問題了，並且會告訴我這個 User 是誰：
 
-```text Terminal
+```text
 $ curl -i http://localhost:9999/api/v1/secret/secret1.json \
 > -H "Authorization: Bearer a14bb554309df32fbb6a3bad6cba25f32a28acc931a74ead06ca904c05281b4c"
 HTTP/1.1 200 OK
@@ -441,12 +454,14 @@ Cache-Control: max-age=0, private, must-revalidate
 
 首先在 `config/initializers/doorkeeper.rb` 裡面增加 scopes 的定義，例如
 
-```ruby config/initializers/doorkeeper.rb
-  # Define access token scopes for your provider
-  # For more information go to https://github.com/applicake/doorkeeper/wiki/Using-Scopes
-  default_scopes  :public              # 如果 Client 不索取任何 scopes 則預設使用這組 scopes
-  optional_scopes :top_secret,         # 其他可以額外申請的 scopes
-                  :el, :psy, :congroo
+```ruby
+# config/initializers/doorkeeper.rb
+
+# Define access token scopes for your provider
+# For more information go to https://github.com/applicake/doorkeeper/wiki/Using-Scopes
+default_scopes  :public              # 如果 Client 不索取任何 scopes 則預設使用這組 scopes
+optional_scopes :top_secret,         # 其他可以額外申請的 scopes
+                :el, :psy, :congroo
 ```
 
 要重開 Rails server 生效。
@@ -464,20 +479,20 @@ Cache-Control: max-age=0, private, must-revalidate
 現在我在 SampleAPI 裡面新增兩個 endpoint ，需要 scopes 才能存取：
 
 ```ruby
-    get "top_secret" do
-      guard! scopes: [:top_secret]
-      { :top_secret => "T0P S3CR37 :p" }
-    end
+get "top_secret" do
+  guard! scopes: [:top_secret]
+  { :top_secret => "T0P S3CR37 :p" }
+end
 
-    get "choice_of_sg" do
-      guard! scopes: [:el, :psy, :congroo]
-      { :says => "El. Psy. Congroo." }
-    end
+get "choice_of_sg" do
+  guard! scopes: [:el, :psy, :congroo]
+  { :says => "El. Psy. Congroo." }
+end
 ```
 
 用之前申請過的 Access Token 來打 `top_secret` 這個 API 會被拒絕（中間斷行比較好讀）：
 
-```text Terminal
+```text
 $ curl -i http://localhost:9999/api/v1/sample/top_secret.json \
 > -H "Authorization: Bearer a14bb554309df32fbb6a3bad6cba25f32a28acc931a74ead06ca904c05281b4c"
 HTTP/1.1 403 Forbidden
@@ -493,7 +508,7 @@ Cache-Control: no-cache
 
 若用新拿到的 Token 就會過了：
 
-```text Terminal
+```text
 $ curl -i http://localhost:9999/api/v1/sample/top_secret.json \
 > -H "Authorization: Bearer 5d840a4e43049eb1e66367bc788059f9bf16b53f853f3cd4f001e51a5c95abfd"
 HTTP/1.1 200 OK
@@ -505,7 +520,7 @@ Cache-Control: max-age=0, private, must-revalidate
 
 然而如果拿這個 Token 去打 `choice_of_sg` 就會被拒絕（中間斷行比較好讀）：
 
-```text Terminal
+```text
 $ curl -i http://localhost:9999/api/v1/sample/choice_of_sg.json \
 > -H "Authorization: Bearer 5d840a4e43049eb1e66367bc788059f9bf16b53f853f3cd4f001e51a5c95abfd"
 HTTP/1.1 403 Forbidden
@@ -532,7 +547,7 @@ Cache-Control: no-cache
 
 最後我拿到的新 Token 是 `0b39839282957d8f80c01901c2468ed52341707594897ec9767af392306f1e55` 。再用它去打 `choice_of_sg` API 就會回我了：
 
-```text Terminal
+```text
 curl -i http://localhost:9999/api/v1/sample/choice_of_sg.json \
 -H "Authorization: Bearer 0b39839282957d8f80c01901c2468ed52341707594897ec9767af392306f1e55"
 HTTP/1.1 200 OK

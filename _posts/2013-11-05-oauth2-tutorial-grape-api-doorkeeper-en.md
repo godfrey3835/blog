@@ -63,7 +63,8 @@ It's based on Rails, so I'm going to use Doorkeeper. Check out [step-3 tag](http
 
 Install the Doorkeeper Gem
 
-```ruby Gemfile
+```ruby
+# Gemfile
 gem 'doorkeeper'
 ```
 
@@ -77,11 +78,13 @@ Then run the following command to install:
 
 Then change the configuration file to make the Doorkeeper authenticate Resource Owner with Devise:
 
-```ruby config/initializers/doorkeeper.rb
-  # Authenticate Resource Owner with Devise
-  resource_owner_authenticator do
-    current_user || warden.authenticate!(:scope => :user)
-  end
+```ruby
+# config/initializers/doorkeeper.rb
+
+# Authenticate Resource Owner with Devise
+resource_owner_authenticator do
+  current_user || warden.authenticate!(:scope => :user)
+end
 ```
 
 That's all. We have built a Authorization Server.
@@ -175,38 +178,41 @@ Besides, this Middleware does only store the return value of block call into `re
 
 So we install this Middleware but only use it to fetch the Access Token string:
 
-```ruby api/concerns/api_guard.rb
-  included do
-    # OAuth2 Resource Server Authentication
-    use Rack::OAuth2::Server::Resource::Bearer, 'The API' do |request|
-      # The authenticator only fetches the raw token string
+```ruby
+# api/concerns/api_guard.rb
+included do
+  # OAuth2 Resource Server Authentication
+  use Rack::OAuth2::Server::Resource::Bearer, 'The API' do |request|
+    # The authenticator only fetches the raw token string
 
-      # Must yield access token to store it in the env
-      request.access_token
-    end
+    # Must yield access token to store it in the env
+    request.access_token
   end
+end
 ```
 
 ### Step 4.2: Make a Private Method to Take Out the Fetched Access Token (String)
 
 I've mentioned above that the Middleware stores the Token in `request.env`. Actually it is stored in`request.env[Rack::OAuth2::Server::Resource::ACCESS_TOKEN]`. So let's take it out:
 
-```ruby api/concerns/api_guard.rb
-  helpers do
-    private
-    def get_token_string
-      # The token was stored after the authenticator was invoked.
-      # It could be nil. The authenticator does not check its existence.
-      request.env[Rack::OAuth2::Server::Resource::ACCESS_TOKEN]
-    end
+```ruby
+# api/concerns/api_guard.rb
+helpers do
+  private
+  def get_token_string
+    # The token was stored after the authenticator was invoked.
+    # It could be nil. The authenticator does not check its existence.
+    request.env[Rack::OAuth2::Server::Resource::ACCESS_TOKEN]
   end
+end
 ```
 
 ### Step 4.3: Make a Private Method to Convert Token String to Instance
 
 Token String is simply a String, and we still have to find the actual Access Token instance in the data model. I read the logic in `doorkeeper_for` helper, and learned that I can invoke its `AccessToken.authenticate` directly, which would return an instance if found, nil if not found:
 
-```ruby api/concerns/api_guard.rb
+```ruby
+# api/concerns/api_guard.rb
   helpers do
     private
     def find_access_token(token_string)
@@ -221,13 +227,14 @@ This service is built as a module called OAuth2::AccessTokenValidationService. I
 
 I put `validate_access_token` helper in Grape Endpoint to make it easier to access, which directly return the result of validation, i.e. the four results mentioned above. The caller can then determine how to response according to the validation result:
 
-```ruby api/concerns/api_guard.rb
-  helpers do
-    private
-    def validate_access_token(access_token, scopes)
-      OAuth2::AccessTokenValidationService.validate(access_token, scopes: scopes)
-    end
+```ruby
+# api/concerns/api_guard.rb
+helpers do
+  private
+  def validate_access_token(access_token, scopes)
+    OAuth2::AccessTokenValidationService.validate(access_token, scopes: scopes)
   end
+end
 ```
 
 The easiest way to compare scope sufficiency is set comparison: if set of authorized scopes is a superset of set of required scopes, then the scope is sufficient; otherwise it is insufficient. However if you would like to implement a logic like "Scope A includes Scope B," you should use another algorithm.
@@ -239,21 +246,22 @@ Here is the simple set comparison algorithm:
 
 Ruby comes with a built-in Set datastructure so that we can do this by converting Array to Set.
 
-```ruby app/services/oauth2/access_token_validation_service.rb
-    protected
-    def sufficent_scope?(token, scopes)
-      if scopes.blank?
-        # if no any scopes required, the scopes of token is sufficient.
-        return true
-      else
-        # If there are scopes required, then check whether
-        # the set of authorized scopes is a superset of the set of required scopes
-        required_scopes = Set.new(scopes)
-        authorized_scopes = Set.new(token.scopes)
+```ruby
+# app/services/oauth2/access_token_validation_service.rb
+protected
+def sufficent_scope?(token, scopes)
+  if scopes.blank?
+    # if no any scopes required, the scopes of token is sufficient.
+    return true
+  else
+    # If there are scopes required, then check whether
+    # the set of authorized scopes is a superset of the set of required scopes
+    required_scopes = Set.new(scopes)
+    authorized_scopes = Set.new(token.scopes)
 
-        return authorized_scopes >= required_scopes
-      end
-    end
+    return authorized_scopes >= required_scopes
+  end
+end
 ```
 
 ### Step 4.5: Make the Guard to Deny Request without Valid Access Token
@@ -274,35 +282,36 @@ Here is the logic:
     * Otherwise, raise respective exceptions.
     * According to the spec, if the validation failed due to insufficient scopes, the response should have status 403 with "Insufficient Scope Error," otherwise it should have 401 status code with "Invalid Token Error."
 
-```ruby app/api/concerns/api_guard.rb
-  helpers do
-    def guard!(scopes: [])
-      token_string = get_token_string()
+```ruby
+# app/api/concerns/api_guard.rb
+helpers do
+  def guard!(scopes: [])
+    token_string = get_token_string()
 
-      if token_string.blank?
-        raise MissingTokenError
+    if token_string.blank?
+      raise MissingTokenError
 
-      elsif (access_token = find_access_token(token_string)).nil?
-        raise TokenNotFoundError
+    elsif (access_token = find_access_token(token_string)).nil?
+      raise TokenNotFoundError
 
-      else
-        case validate_access_token(access_token, scopes)
-        when Oauth2::AccessTokenValidationService::INSUFFICIENT_SCOPE
-          raise InsufficientScopeError.new(scopes)
+    else
+      case validate_access_token(access_token, scopes)
+      when Oauth2::AccessTokenValidationService::INSUFFICIENT_SCOPE
+        raise InsufficientScopeError.new(scopes)
 
-        when Oauth2::AccessTokenValidationService::EXPIRED
-          raise ExpiredError
+      when Oauth2::AccessTokenValidationService::EXPIRED
+        raise ExpiredError
 
-        when Oauth2::AccessTokenValidationService::REVOKED
-          raise RevokedError
+      when Oauth2::AccessTokenValidationService::REVOKED
+        raise RevokedError
 
-        when Oauth2::AccessTokenValidationService::VALID
-          @current_user = User.find(access_token.resource_owner_id)
+      when Oauth2::AccessTokenValidationService::VALID
+        @current_user = User.find(access_token.resource_owner_id)
 
-        end
       end
     end
   end
+end
 ```
 
 ### Step 4.6: Forward Exceptions to the Exceptions Built-in in Rack::OAuth2
@@ -313,14 +322,14 @@ Notes that:
 
 * There's a set of `error_description` strings in Bearer::ErrorMethods, each `error` code has a corresponding description string.
   * Howerver they're only filled-in automatically when the exceptions are raised from Rack authenticator with corresponding methods (e.g. `insufficiet_scope!`.)
-  * **They're not filled-in if we call the error responder middlewares directly** 
+  * **They're not filled-in if we call the error responder middlewares directly**
   * So we have to manually fill them in.
 * If the error is due to not presenting a token, we can assume that Client does not know that it has to authenticate.
   * So we don't use any `error` code that is defined in the spec.
   * `error_description` can be obmitted too.
   * Respond 401 with Bearer::Unauthorized middleware.
-* If the error is due to token not found, expired or revoked, use `invalid_token` for `error` code. 
-  * Actually we can use the same `error_description` string. 
+* If the error is due to token not found, expired or revoked, use `invalid_token` for `error` code.
+  * Actually we can use the same `error_description` string.
   * In my implementation, I raise different Exceptions and different `error_description`s for different errors.
   * You can use the same error description in your implementation, which still fulfills the requirements of spec.
   * Respond 401 with Bearer::Unauthorized middleware.
@@ -331,59 +340,62 @@ Notes that:
   * I've implemented [a fork](https://github.com/chitsaou/rack-oauth2/tree/scope-error-params) that fills error messages in the `WWW-Authenticate` header.
 * My implementation does not care about `error_uri` and `realm`; the `realm` will be fallen back to Rack::OAuth2's default one.
 
-```ruby app/api/concerns/api_guard.rb
-  included do |base|
-    install_error_responders(base)
+```ruby
+# app/api/concerns/api_guard.rb
+included do |base|
+  install_error_responders(base)
+end
+
+# ...
+
+module ClassMethods
+  private
+  def install_error_responders(base)
+    error_classes = [ MissingTokenError, TokenNotFoundError,
+                      ExpiredError, RevokedError, InsufficientScopeError]
+    base.send :rescue_from, *error_classes, oauth2_bearer_token_error_handler
   end
-  
-  # ... 
 
-  module ClassMethods
-    private
-    def install_error_responders(base)
-      error_classes = [ MissingTokenError, TokenNotFoundError,
-                        ExpiredError, RevokedError, InsufficientScopeError]
-      base.send :rescue_from, *error_classes, oauth2_bearer_token_error_handler
-    end
+  def oauth2_bearer_token_error_handler
+    Proc.new {|e|
+      response = case e
+        when MissingTokenError
+          Rack::OAuth2::Server::Resource::Bearer::Unauthorized.new
 
-    def oauth2_bearer_token_error_handler
-      Proc.new {|e|
-        response = case e
-          when MissingTokenError
-            Rack::OAuth2::Server::Resource::Bearer::Unauthorized.new
+        when TokenNotFoundError
+          Rack::OAuth2::Server::Resource::Bearer::Unauthorized.new(
+            :invalid_token,
+            "Bad Access Token.")
+        # etc. etc.
+        end
 
-          when TokenNotFoundError
-            Rack::OAuth2::Server::Resource::Bearer::Unauthorized.new(
-              :invalid_token,
-              "Bad Access Token.")
-          # etc. etc.
-          end
-
-        response.finish
-      }
-    end
+      response.finish
+    }
   end
+end
 ```  
 
 ### Step 4.7: Make a Guard for the whole API
 
 This usage is copied from `doorkeeper_for :all`, which is used to "require OAuth 2 Token for all the endpoints under this API." For Grape, it should be implmented as a class method in `Grape::API` class, so I put it in `ClassMethods` module. Call it in Grape::API and a `before` filter will be inserted; all the endpoints will go through that filter.
 
-```ruby app/api/concerns/api_guard.rb
-  module ClassMethods
-    def guard_all!(scopes: [])
-      before do
-        guard! scopes: scopes
-      end
+```ruby
+# app/api/concerns/api_guard.rb
+module ClassMethods
+  def guard_all!(scopes: [])
+    before do
+      guard! scopes: scopes
     end
   end
+end
 ```
 
 ### Step 4.8: Now We Can Lock Up the API with OAuth 2
 
 Requiring OAuth 2 on a single Endpoint:
 
-```ruby app/api/v1/sample_api.rb
+```ruby
+# app/api/v1/sample_api.rb
 module V1
   class SampleAPI < Base
     get "secret" do
@@ -396,7 +408,8 @@ end
 
 Requiring OAuth 2 on all the endpoints under an API:
 
-```ruby app/api/v1/secret_api.rb
+```ruby
+# app/api/v1/secret_api.rb
 module V1
   class SecretAPI < Base
     guard_all!  # Requires a valid OAuth 2 Access Token to use all Endpoints
@@ -416,7 +429,7 @@ end
 
 Request to the endpoint without a valid token will be rejected:
 
-```text Terminal
+```text
 $ curl -i http://localhost:9999/api/v1/secret/secret1.json
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer realm="The API"
@@ -428,7 +441,7 @@ Cache-Control: no-cache
 
 If we present a valid token, it will pass, and tells me whom the user of that token is:
 
-```text Terminal
+```text
 $ curl -i http://localhost:9999/api/v1/secret/secret1.json \
 > -H "Authorization: Bearer a14bb554309df32fbb6a3bad6cba25f32a28acc931a74ead06ca904c05281b4c"
 HTTP/1.1 200 OK
@@ -444,12 +457,14 @@ So far, the OAuth 2 Guard supports "scopes" but the Authorization Server does no
 
 First, add scope declarations in `config/initializers/doorkeeper.rb`:
 
-```ruby config/initializers/doorkeeper.rb
-  # Define access token scopes for your provider
-  # For more information go to https://github.com/applicake/doorkeeper/wiki/Using-Scopes
-  default_scopes  :public              # If the Client does not ask for any scopes, use these scopes
-  optional_scopes :top_secret,         # Other scopes that the Client can ask for
-                  :el, :psy, :congroo
+```ruby
+# config/initializers/doorkeeper.rb
+
+# Define access token scopes for your provider
+# For more information go to https://github.com/applicake/doorkeeper/wiki/Using-Scopes
+default_scopes  :public              # If the Client does not ask for any scopes, use these scopes
+optional_scopes :top_secret,         # Other scopes that the Client can ask for
+                :el, :psy, :congroo
 ```
 
 Don't forget to restart the Rails server.
@@ -467,20 +482,20 @@ It'll ask you whether to authorize or deny, again. So you know that Authorizatio
 Now add 2 endpoints in SampleAPI that require specific scopes to access:
 
 ```ruby
-    get "top_secret" do
-      guard! scopes: [:top_secret]
-      { :top_secret => "T0P S3CR37 :p" }
-    end
+get "top_secret" do
+  guard! scopes: [:top_secret]
+  { :top_secret => "T0P S3CR37 :p" }
+end
 
-    get "choice_of_sg" do
-      guard! scopes: [:el, :psy, :congroo]
-      { :says => "El. Psy. Congroo." }
-    end
+get "choice_of_sg" do
+  guard! scopes: [:el, :psy, :congroo]
+  { :says => "El. Psy. Congroo." }
+end
 ```
 
 If we access `top_secret` endpoint with the previous Access Token, it will reject:
 
-```text Terminal
+```text
 $ curl -i http://localhost:9999/api/v1/sample/top_secret.json \
 > -H "Authorization: Bearer a14bb554309df32fbb6a3bad6cba25f32a28acc931a74ead06ca904c05281b4c"
 HTTP/1.1 403 Forbidden
@@ -496,7 +511,7 @@ Cache-Control: no-cache
 
 However if we use the new token, it will pass:
 
-```text Terminal
+```text
 $ curl -i http://localhost:9999/api/v1/sample/top_secret.json \
 > -H "Authorization: Bearer 5d840a4e43049eb1e66367bc788059f9bf16b53f853f3cd4f001e51a5c95abfd"
 HTTP/1.1 200 OK
@@ -508,7 +523,7 @@ Cache-Control: max-age=0, private, must-revalidate
 
 If we use the new token to access `choice_of_sg`, it won't pass:
 
-```text Terminal
+```text
 $ curl -i http://localhost:9999/api/v1/sample/choice_of_sg.json \
 > -H "Authorization: Bearer 5d840a4e43049eb1e66367bc788059f9bf16b53f853f3cd4f001e51a5c95abfd"
 HTTP/1.1 403 Forbidden
@@ -535,7 +550,7 @@ For multiple scopes, separate them with spaces `%20`.
 
 This time I got a new token `0b39839282957d8f80c01901c2468ed52341707594897ec9767af392306f1e55`. If I access `choice_of_sg` with the new token, it will pass:
 
-```text Terminal
+```text
 curl -i http://localhost:9999/api/v1/sample/choice_of_sg.json \
 -H "Authorization: Bearer 0b39839282957d8f80c01901c2468ed52341707594897ec9767af392306f1e55"
 HTTP/1.1 200 OK

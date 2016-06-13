@@ -24,7 +24,8 @@ comments: true
 
 在 `config.ru` 這個檔案裡面，有實作如果檔案找不到的時候，會輸出 `404.html` （[見此](https://github.com/imathis/octopress/blob/master/config.ru#L13)），我要的是轉去舊站，所以這樣改：
 
-``` ruby config.ru
+```ruby
+# config.ru
 not_found do
   redirect to("http://chitsaou.wordpress.com#{request.path}"), 307
 end

@@ -75,7 +75,8 @@ comments: true
 
 把 `boshiamy_*.db` 放到轉換程式的資料夾裡面，然後執行：
 
-```sh ~/Downloads/boshiamy-ibus
+```sh
+# ~/Downloads/boshiamy-ibus
 ./install.sh
 ```
 
@@ -83,7 +84,8 @@ comments: true
 
 最後再把輸入法註冊在 Squirrel 上面，重新 Deploy 就行了。
 
-```diff default.custom.yaml
+```diff
+# default.custom.yaml
  patch:
    schema_list:
      - schema: luna_pinyin

@@ -49,7 +49,7 @@ comments: true
 
 關於 Client Authorization （認證）：
 
-* 大部份都有支援 POST 
+* 大部份都有支援 POST
 * 並非全部都有支援 HTTP Basic Auth ，但規格書裡面規定的是要至少支援 Basic Auth ，因為這一點，所以我把很多個服務標成「不相容 spec」
 * 少數有使用 GET
 
@@ -157,7 +157,7 @@ GitHub 的 Mac GUI 應用程式就是用 OAuth 來存取資料的。你可以打
 
 用同樣的 Access Token 可以 call API：
 
-```text Terminal
+```text
 $ curl -i -H "Authorization: token bXXXXXXXXXXXXXXXXXXXXXXXXXXXXXb" https://api.github.com/user
 HTTP/1.1 200 OK
 Server: GitHub.com

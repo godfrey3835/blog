@@ -148,7 +148,8 @@ rebase 的基本指令是 `git rebase <new base-commit>` ，意思是說，把�
 
 接著會以你的預設編輯器打開一個檔案叫做 `.git/rebase-merge/git-rebase-todo` ，裡面已經有一些 git 幫你預設好的內容了，其實就是原本 commits 的清單，你可以修改它，告訴 git 你想怎麼改：
 
-``` text git rebase -i
+```text
+# git rebase -i
 pick 2c97b26 form to add more studetns
 pick fd19f8e add student id and age field into the form
 pick 02849bf fix typo of age field name
@@ -174,7 +175,8 @@ pick 74d8a3d add gender select box
 
 首先我想要把 `"wrap the form with div"` 移到 `"form to add more studetns"` 後面，然後 `"form to add more studetns"` 要改 commit message （有 typo），那就改成這樣：
 
-``` text git rebase -i
+```text
+# git rebase -i
 reword 2c97b26 form to add more studetns
 pick bd73d4d wrap the form with div
 pick fd19f8e add student id and age field into the form
@@ -184,7 +186,8 @@ pick 74d8a3d add gender select box
 
 接著儲存檔案後把檔案關掉（如 vim 的 `:wq`），就開始執行 rebase 啦，遇到 `reword`  時會再跳出編輯器，讓你重新輸入 commit message 。這時我把 `studetns` 改正為 `students` ，然後就跟平常 commit 一樣，存檔並關掉檔案。
 
-``` text git commit
+```text
+# git commit
 form to add more students
 
 # Please enter the commit message for your changes. Lines starting
@@ -209,7 +212,8 @@ form to add more students
 
 現在來試試看合併，一樣是 `git rebase -i 0580eab8` ，並使用 `fixup` 來把 commit 給合併到上一個（如果用 `squash` 的話，會讓你修改 commit message ，修改時會把多個要連續合併的 commit messages 放在同一個編輯器裡）：
 
-``` text git rebase -i
+```text
+# git rebase -i
 pick c3cff8a form to add more students
 pick 7e128b4 wrap the form with div
 pick 0d450ea add student id and age field into the form
@@ -227,7 +231,8 @@ pick e323dbc add gender select bo
 
 在這裡下 `edit` 指令來編輯 commit 內容：
 
-``` text git rebase -i
+```text
+# git rebase -i
 pick c3cff8a form to add more students
 pick 7e128b4 wrap the form with div
 pick 53616de add student id and age field into the form
@@ -244,7 +249,8 @@ edit c5b9ad8 add gender select box
 
 實際的操作如下。首先是用 `edit` 指令來編輯 commit 內容：
 
-``` text git rebase -i
+```text
+# git rebase -i
 pick c3cff8a form to add more students
 pick 7e128b4 wrap the form with div
 edit 53616de add student id and age field into the form
