@@ -15,17 +15,14 @@ google_analytics_id: UA-27155466-1
 
 permalink: /posts/:year/:month/:day/:title/
 
-gems:
-- jekyll-html-pipeline
-- markdown-highlight-extended-filter
-
 # Build settings
-markdown: HTMLPipeline
+# markdown: redcarpet
+markdown: kramdown
 
-html_pipeline:
-  filters:
-    - "MarkdownHighlightExtendedFilter"
-    - "markdownfilter"
+kramdown:
+  input: GFM
+
+highlighter: rouge
 
 exclude:
   - Gemfile
