@@ -9,6 +9,7 @@ tags:
 - CD
 - "アニメ"
 categories: []
+redirect_from: /posts/2014/05/28/got-my-first-cds-from-amazon-jp
 comments: true
 
 ---

@@ -7,6 +7,7 @@ tags:
 - github
 - chrome
 categories: []
+redirect_from: /posts/2012/04/15/git-io-url-shortener
 comments: true
 
 ---

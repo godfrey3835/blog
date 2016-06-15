@@ -5,6 +5,7 @@ published: true
 date: 2011-03-09 00:00
 tags: []
 categories: []
+redirect_from: /posts/2011/03/09/redmine-on-heroku-force-ssl
 comments: true
 
 ---

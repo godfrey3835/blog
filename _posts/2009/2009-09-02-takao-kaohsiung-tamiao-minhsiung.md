@@ -5,6 +5,7 @@ published: true
 date: 2009-09-02 00:00
 tags: []
 categories: []
+redirect_from: /posts/2009/09/02/takao-kaohsiung-tamiao-minhsiung
 comments: true
 
 ---

@@ -5,6 +5,7 @@ published: true
 date: 2010-04-04 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/04/04/eating-popiah-on-ching-ming
 comments: true
 
 ---

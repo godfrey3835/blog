@@ -5,6 +5,7 @@ published: true
 date: 2010-06-26 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/06/26/some-gossips-about-master-degree
 comments: true
 
 ---

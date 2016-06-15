@@ -8,6 +8,7 @@ tags:
 - "歷史"
 - "二二八"
 categories: []
+redirect_from: /posts/2014/10/30/228-taichung-civil-army
 comments: true
 
 ---

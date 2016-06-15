@@ -5,6 +5,7 @@ published: true
 date: 2010-12-26 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/12/26/vbox-vmx-win7
 comments: true
 
 ---

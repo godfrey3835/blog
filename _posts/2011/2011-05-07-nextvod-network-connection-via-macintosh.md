@@ -5,6 +5,7 @@ published: true
 date: 2011-05-07 00:00
 tags: []
 categories: []
+redirect_from: /posts/2011/05/07/nextvod-network-connection-via-macintosh
 comments: true
 
 ---

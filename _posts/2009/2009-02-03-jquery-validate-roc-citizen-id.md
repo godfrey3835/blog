@@ -5,6 +5,7 @@ published: true
 date: 2009-02-03 00:00
 tags: []
 categories: []
+redirect_from: /posts/2009/02/03/jquery-validate-roc-citizen-id
 comments: true
 
 ---

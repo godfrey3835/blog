@@ -6,6 +6,7 @@ date: 2013-09-30 21:45
 tags:
 - OAuth
 categories: []
+redirect_from: /posts/2013/09/30/oauth2-4-3-resource-owner-credentials-grant-flow
 comments: true
 
 ---

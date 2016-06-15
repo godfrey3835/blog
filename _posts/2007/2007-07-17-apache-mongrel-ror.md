@@ -5,6 +5,7 @@ published: true
 date: 2007-07-17 00:00
 tags: []
 categories: []
+redirect_from: /posts/2007/07/17/apache-mongrel-ror
 comments: true
 
 ---

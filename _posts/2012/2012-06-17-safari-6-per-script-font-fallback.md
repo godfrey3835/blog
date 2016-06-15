@@ -9,6 +9,7 @@ tags:
 - webkit
 - web development
 categories: []
+redirect_from: /posts/2012/06/17/safari-6-per-script-font-fallback
 comments: true
 
 ---

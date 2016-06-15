@@ -7,6 +7,7 @@ tags:
 - logdown
 - Octopress
 categories: []
+redirect_from: /posts/2013/09/25/migrate-from-octopress-to-logdown
 comments: true
 
 ---

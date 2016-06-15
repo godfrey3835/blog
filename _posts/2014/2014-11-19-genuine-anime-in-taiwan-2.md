@@ -10,6 +10,7 @@ tags:
 - "盜版"
 - "網路影音"
 categories: []
+redirect_from: /posts/2014/11/19/genuine-anime-in-taiwan-2
 comments: true
 
 ---

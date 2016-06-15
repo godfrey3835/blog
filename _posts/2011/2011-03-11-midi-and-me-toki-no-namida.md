@@ -5,6 +5,7 @@ published: true
 date: 2011-03-11 00:00
 tags: []
 categories: []
+redirect_from: /posts/2011/03/11/midi-and-me-toki-no-namida
 comments: true
 
 ---

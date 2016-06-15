@@ -7,6 +7,7 @@ tags:
 - ruby
 - rails
 categories: []
+redirect_from: /posts/2014/02/10/autoload-in-ruby-autoload-paths-in-rails-and-module-reopening
 comments: true
 
 ---

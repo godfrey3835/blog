@@ -10,6 +10,7 @@ tags:
 - IE11
 - XHR2
 categories: []
+redirect_from: /posts/2014/02/06/ajax-with-formdata-is-broken-on-ie10-ie11
 comments: true
 
 ---

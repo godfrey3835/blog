@@ -8,6 +8,7 @@ tags:
 - "吃貨"
 - "台南"
 categories: []
+redirect_from: /posts/2011/09/10/guoshaoyimian-noodle-haukechi
 comments: true
 
 ---

@@ -7,6 +7,7 @@ tags:
 - "北京"
 - "中國"
 categories: []
+redirect_from: /posts/2013/10/31/beijing-image
 comments: true
 
 ---

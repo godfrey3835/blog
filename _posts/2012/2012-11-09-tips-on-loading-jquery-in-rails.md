@@ -8,6 +8,7 @@ tags:
 - jquery
 - web development
 categories: []
+redirect_from: /posts/2012/11/09/tips-on-loading-jquery-in-rails
 comments: true
 
 ---

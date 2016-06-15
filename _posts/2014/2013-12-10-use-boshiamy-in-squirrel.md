@@ -9,6 +9,7 @@ tags:
 - "嘸蝦米"
 - Squirrel
 categories: []
+redirect_from: /posts/2013/12/10/use-boshiamy-in-squirrel
 comments: true
 
 ---

@@ -6,6 +6,7 @@ date: 2013-09-30 21:41
 tags:
 - OAuth
 categories: []
+redirect_from: /posts/2013/09/30/oauth2-2-cilent-registration
 comments: true
 
 ---

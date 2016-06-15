@@ -5,6 +5,7 @@ published: true
 date: 2011-06-28 00:00
 tags: []
 categories: []
+redirect_from: /posts/2011/06/28/notes-on-rvm-and-pow-installation
 comments: true
 
 ---

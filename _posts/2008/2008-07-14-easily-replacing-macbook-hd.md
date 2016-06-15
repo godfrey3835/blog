@@ -5,6 +5,7 @@ published: true
 date: 2008-07-14 00:00
 tags: []
 categories: []
+redirect_from: /posts/2008/07/14/easily-replacing-macbook-hd
 comments: true
 
 ---

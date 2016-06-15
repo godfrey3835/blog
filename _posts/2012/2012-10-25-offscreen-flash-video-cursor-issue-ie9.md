@@ -8,6 +8,7 @@ tags:
 - web development
 - IE
 categories: []
+redirect_from: /posts/2012/10/25/offscreen-flash-video-cursor-issue-ie9
 comments: true
 
 ---

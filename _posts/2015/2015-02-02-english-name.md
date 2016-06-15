@@ -5,6 +5,7 @@ published: true
 date: 2015-02-02 23:29
 tags:
 categories: []
+redirect_from: /posts/2015/02/02/english-name
 comments: true
 ---
 

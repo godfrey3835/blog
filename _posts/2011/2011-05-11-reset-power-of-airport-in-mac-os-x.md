@@ -5,6 +5,7 @@ published: true
 date: 2011-05-11 00:00
 tags: []
 categories: []
+redirect_from: /posts/2011/05/11/reset-power-of-airport-in-mac-os-x
 comments: true
 
 ---

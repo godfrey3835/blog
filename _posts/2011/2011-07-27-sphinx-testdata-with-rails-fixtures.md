@@ -5,6 +5,7 @@ published: true
 date: 2011-07-27 00:00
 tags: []
 categories: []
+redirect_from: /posts/2011/07/27/sphinx-testdata-with-rails-fixtures
 comments: true
 
 ---

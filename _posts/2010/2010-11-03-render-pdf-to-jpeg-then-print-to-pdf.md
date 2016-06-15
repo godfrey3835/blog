@@ -5,6 +5,7 @@ published: true
 date: 2010-11-03 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/11/03/render-pdf-to-jpeg-then-print-to-pdf
 comments: true
 
 ---

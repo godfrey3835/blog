@@ -10,6 +10,7 @@ tags:
 - Rack
 - Grape
 categories: []
+redirect_from: /posts/2013/10/08/oauth2-ruby-and-rails-integration-review
 comments: true
 
 ---

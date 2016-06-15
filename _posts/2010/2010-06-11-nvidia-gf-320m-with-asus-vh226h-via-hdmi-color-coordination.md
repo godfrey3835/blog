@@ -5,6 +5,7 @@ published: true
 date: 2010-06-11 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/06/11/nvidia-gf-320m-with-asus-vh226h-via-hdmi-color-coordination
 comments: true
 
 ---

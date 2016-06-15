@@ -9,6 +9,7 @@ tags:
 - conference
 - "政治正確"
 categories: []
+redirect_from: /posts/2014/04/26/rubyconf-taiwan-2014-offensive-women
 comments: true
 
 ---

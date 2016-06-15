@@ -7,6 +7,7 @@ tags:
 - TaiwanMoney
 - "交通"
 categories: []
+redirect_from: /posts/2011/08/17/taiwanmoney-bye
 comments: true
 
 ---

@@ -5,6 +5,7 @@ published: true
 date: 2010-01-08 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/01/08/weida-de-xuexiao
 comments: true
 
 ---

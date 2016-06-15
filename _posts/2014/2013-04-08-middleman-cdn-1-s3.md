@@ -10,6 +10,7 @@ tags:
 - CDN
 - s3
 categories: []
+redirect_from: /posts/2013/04/08/middleman-cdn-1-s3
 comments: true
 
 ---

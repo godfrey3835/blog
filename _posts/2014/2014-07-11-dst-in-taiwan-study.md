@@ -10,6 +10,7 @@ tags:
 - "日治時代"
 - "日光節約時間"
 categories: []
+redirect_from: /posts/2014/07/11/dst-in-taiwan-study
 comments: true
 
 ---

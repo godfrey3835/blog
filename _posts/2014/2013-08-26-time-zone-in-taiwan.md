@@ -8,6 +8,7 @@ tags:
 - "時區"
 - "日治時期"
 categories: []
+redirect_from: /posts/2013/08/26/time-zone-in-taiwan
 comments: true
 
 ---

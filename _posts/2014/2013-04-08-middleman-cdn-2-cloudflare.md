@@ -9,6 +9,7 @@ tags:
 - CDN
 - CloudFlare
 categories: []
+redirect_from: /posts/2013/04/08/middleman-cdn-2-cloudflare
 comments: true
 
 ---

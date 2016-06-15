@@ -5,6 +5,7 @@ published: true
 date: 2007-03-10 00:00
 tags: []
 categories: []
+redirect_from: /posts/2007/03/10/tips-on-caa
 comments: true
 
 ---

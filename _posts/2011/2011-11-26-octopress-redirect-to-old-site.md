@@ -7,6 +7,7 @@ tags:
 - Octopress
 - Sinatra
 categories: []
+redirect_from: /posts/2011/11/26/octopress-redirect-to-old-site
 comments: true
 
 ---

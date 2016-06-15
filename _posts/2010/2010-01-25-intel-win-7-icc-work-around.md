@@ -5,6 +5,7 @@ published: true
 date: 2010-01-25 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/01/25/intel-win-7-icc-work-around
 comments: true
 
 ---

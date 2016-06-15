@@ -5,6 +5,7 @@ published: true
 date: 2010-07-13 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/07/13/macbook-pro-mid-2010-unboxing
 comments: true
 
 ---

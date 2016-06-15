@@ -5,6 +5,7 @@ published: true
 date: 2010-12-15 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/12/15/icash-easycard-with-metro-taipei-route-map
 comments: true
 
 ---

@@ -5,6 +5,7 @@ published: true
 date: 2007-08-01 00:00
 tags: []
 categories: []
+redirect_from: /posts/2007/08/01/reading-preferences
 comments: true
 
 ---

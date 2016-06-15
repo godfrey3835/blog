@@ -8,6 +8,7 @@ tags:
 - Microsoft
 - mouse
 categories: []
+redirect_from: /posts/2014/04/12/microsoft-sculpt-mobile-mouse-and-mac
 comments: true
 
 ---

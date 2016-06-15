@@ -8,6 +8,7 @@ tags:
 - xcode
 - programming
 categories: []
+redirect_from: /posts/2009/03/15/fundamental-c-with-xcode
 comments: true
 
 ---

@@ -5,6 +5,7 @@ published: true
 date: 2008-07-17 00:00
 tags: []
 categories: []
+redirect_from: /posts/2008/07/17/railfare-alpha
 comments: true
 
 ---

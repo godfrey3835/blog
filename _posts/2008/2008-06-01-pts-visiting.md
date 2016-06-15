@@ -5,6 +5,7 @@ published: true
 date: 2008-06-01 00:00
 tags: []
 categories: []
+redirect_from: /posts/2008/06/01/pts-visiting
 comments: true
 
 ---

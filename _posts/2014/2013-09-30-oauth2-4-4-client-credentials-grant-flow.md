@@ -6,6 +6,7 @@ date: 2013-09-30 21:46
 tags:
 - OAuth
 categories: []
+redirect_from: /posts/2013/09/30/oauth2-4-4-client-credentials-grant-flow
 comments: true
 
 ---

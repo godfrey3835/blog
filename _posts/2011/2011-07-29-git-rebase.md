@@ -6,6 +6,7 @@ date: 2011-07-29 00:00
 tags:
 - git
 categories: []
+redirect_from: /posts/2011/07/29/git-rebase
 comments: true
 
 ---

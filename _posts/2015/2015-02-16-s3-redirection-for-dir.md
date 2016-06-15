@@ -5,6 +5,7 @@ published: true
 date: 2015-02-16 21:30
 tags:
 categories: []
+redirect_from: /posts/2015/02/16/s3-redirection-for-dir
 comments: true
 ---
 

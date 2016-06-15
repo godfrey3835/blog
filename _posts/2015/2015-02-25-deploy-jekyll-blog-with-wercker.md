@@ -5,6 +5,7 @@ published: true
 date: 2015-02-25 23:00
 tags:
 categories: []
+redirect_from: /posts/2015/02/25/deploy-jekyll-blog-with-wercker
 comments: true
 ---
 

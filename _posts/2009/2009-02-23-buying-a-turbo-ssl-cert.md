@@ -5,6 +5,7 @@ published: true
 date: 2009-02-23 00:00
 tags: []
 categories: []
+redirect_from: /posts/2009/02/23/buying-a-turbo-ssl-cert
 comments: true
 
 ---

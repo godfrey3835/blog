@@ -5,6 +5,7 @@ published: true
 date: 2011-03-08 00:00
 tags: []
 categories: []
+redirect_from: /posts/2011/03/08/redmine-1-1-on-heroku
 comments: true
 
 ---

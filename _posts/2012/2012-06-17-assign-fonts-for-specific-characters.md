@@ -8,6 +8,7 @@ tags:
 - fonts
 - web development
 categories: []
+redirect_from: /posts/2012/06/17/assign-fonts-for-specific-characters
 comments: true
 
 ---

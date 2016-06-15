@@ -5,6 +5,7 @@ published: true
 date: 2009-10-29 00:00
 tags: []
 categories: []
+redirect_from: /posts/2009/10/29/my-snow-leopard-defaultfontfallbacks-plist
 comments: true
 
 ---

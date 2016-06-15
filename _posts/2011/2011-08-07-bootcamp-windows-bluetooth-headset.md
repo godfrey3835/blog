@@ -8,6 +8,7 @@ tags:
 - Bluetooth
 - windows
 categories: []
+redirect_from: /posts/2011/08/07/bootcamp-windows-bluetooth-headset
 comments: true
 
 ---

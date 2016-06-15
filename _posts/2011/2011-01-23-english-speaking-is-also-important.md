@@ -5,6 +5,7 @@ published: true
 date: 2011-01-23 00:00
 tags: []
 categories: []
+redirect_from: /posts/2011/01/23/english-speaking-is-also-important
 comments: true
 
 ---

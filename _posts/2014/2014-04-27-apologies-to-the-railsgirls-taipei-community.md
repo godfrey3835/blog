@@ -5,6 +5,7 @@ published: true
 date: 2014-04-27 20:48
 tags: []
 categories: []
+redirect_from: /posts/2014/04/27/apologies-to-the-railsgirls-taipei-community
 comments: true
 
 ---

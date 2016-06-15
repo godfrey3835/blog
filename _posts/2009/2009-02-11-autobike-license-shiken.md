@@ -5,6 +5,7 @@ published: true
 date: 2009-02-11 00:00
 tags: []
 categories: []
+redirect_from: /posts/2009/02/11/autobike-license-shiken
 comments: true
 
 ---

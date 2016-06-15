@@ -5,6 +5,7 @@ published: true
 date: 2009-02-13 00:00
 tags: []
 categories: []
+redirect_from: /posts/2009/02/13/pcsc-ez100pu-reader
 comments: true
 
 ---

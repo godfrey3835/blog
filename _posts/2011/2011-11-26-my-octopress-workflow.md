@@ -8,6 +8,7 @@ tags:
 - Octopress
 - heroku
 categories: []
+redirect_from: /posts/2011/11/26/my-octopress-workflow
 comments: true
 
 ---

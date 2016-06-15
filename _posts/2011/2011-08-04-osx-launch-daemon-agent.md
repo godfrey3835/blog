@@ -7,6 +7,7 @@ tags:
 - mac
 - daemon
 categories: []
+redirect_from: /posts/2011/08/04/osx-launch-daemon-agent
 comments: true
 
 ---

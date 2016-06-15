@@ -8,6 +8,7 @@ tags:
 - windows
 - IE
 categories: []
+redirect_from: /posts/2012/11/13/debugging-rails-app-on-ie10-non-desktop
 comments: true
 
 ---

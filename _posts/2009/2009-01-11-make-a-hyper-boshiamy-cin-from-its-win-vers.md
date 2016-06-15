@@ -5,6 +5,7 @@ published: true
 date: 2009-01-11 00:00
 tags: []
 categories: []
+redirect_from: /posts/2009/01/11/make-a-hyper-boshiamy-cin-from-its-win-vers
 comments: true
 
 ---

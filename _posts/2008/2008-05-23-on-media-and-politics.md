@@ -5,6 +5,7 @@ published: true
 date: 2008-05-23 00:00
 tags: []
 categories: []
+redirect_from: /posts/2008/05/23/on-media-and-politics
 comments: true
 
 ---

@@ -6,6 +6,7 @@ date: 2013-09-30 21:43
 tags:
 - OAuth
 categories: []
+redirect_from: /posts/2013/09/30/oauth2-4-1-auth-code-grant-flow
 comments: true
 
 ---

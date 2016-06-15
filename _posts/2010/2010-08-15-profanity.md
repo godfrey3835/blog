@@ -5,6 +5,7 @@ published: true
 date: 2010-08-15 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/08/15/profanity
 comments: true
 
 ---

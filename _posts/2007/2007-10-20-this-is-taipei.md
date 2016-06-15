@@ -5,6 +5,7 @@ published: true
 date: 2007-10-20 00:00
 tags: []
 categories: []
+redirect_from: /posts/2007/10/20/this-is-taipei
 comments: true
 
 ---

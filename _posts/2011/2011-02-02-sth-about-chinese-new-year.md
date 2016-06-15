@@ -5,6 +5,7 @@ published: true
 date: 2011-02-02 00:00
 tags: []
 categories: []
+redirect_from: /posts/2011/02/02/sth-about-chinese-new-year
 comments: true
 
 ---

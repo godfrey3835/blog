@@ -10,6 +10,7 @@ tags:
 - Safari
 - web development
 categories: []
+redirect_from: /posts/2013/07/03/universal-hover-triggers-double-tap-bug-in-ios-safari
 comments: true
 
 ---

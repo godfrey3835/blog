@@ -5,6 +5,7 @@ published: true
 date: 2009-11-18 00:00
 tags: []
 categories: []
+redirect_from: /posts/2009/11/18/windows-7-bootcamp-hfs
 comments: true
 
 ---

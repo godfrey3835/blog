@@ -5,6 +5,7 @@ published: true
 date: 2011-02-01 00:00
 tags: []
 categories: []
+redirect_from: /posts/2011/02/01/rightaws-get-link-response
 comments: true
 
 ---

@@ -6,6 +6,7 @@ date: 2011-09-20 00:00
 tags:
 - mac
 categories: []
+redirect_from: /posts/2011/09/20/sol-to-mouse-middle-button-becoming-app-switcher
 comments: true
 
 ---

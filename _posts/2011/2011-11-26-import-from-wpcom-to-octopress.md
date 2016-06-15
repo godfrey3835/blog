@@ -7,6 +7,7 @@ tags:
 - Octopress
 - wordpress
 categories: []
+redirect_from: /posts/2011/11/26/import-from-wpcom-to-octopress
 comments: true
 
 ---

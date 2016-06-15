@@ -7,6 +7,7 @@ tags:
 - Markdown
 - chrome
 categories: []
+redirect_from: /posts/2012/03/02/copy-as-markdown
 comments: true
 
 ---

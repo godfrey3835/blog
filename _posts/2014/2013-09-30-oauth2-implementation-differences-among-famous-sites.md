@@ -6,6 +6,7 @@ date: 2013-09-30 21:50
 tags:
 - OAuth
 categories: []
+redirect_from: /posts/2013/09/30/oauth2-implementation-differences-among-famous-sites
 comments: true
 
 ---

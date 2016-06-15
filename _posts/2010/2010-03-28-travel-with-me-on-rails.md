@@ -5,6 +5,7 @@ published: true
 date: 2010-03-28 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/03/28/travel-with-me-on-rails
 comments: true
 
 ---

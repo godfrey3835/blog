@@ -7,6 +7,7 @@ tags:
 - javascript
 - CoffeeScript
 categories: []
+redirect_from: /posts/2014/06/10/mixin-and-concern-in-javascript
 comments: true
 
 ---

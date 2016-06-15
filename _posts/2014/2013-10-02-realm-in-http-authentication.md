@@ -5,6 +5,7 @@ published: true
 date: 2013-10-02 11:12
 tags: []
 categories: []
+redirect_from: /posts/2013/10/02/realm-in-http-authentication
 comments: true
 
 ---

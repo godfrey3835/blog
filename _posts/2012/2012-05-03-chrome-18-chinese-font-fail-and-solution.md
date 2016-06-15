@@ -9,6 +9,7 @@ tags:
 - webkit
 - web development
 categories: []
+redirect_from: /posts/2012/05/03/chrome-18-chinese-font-fail-and-solution
 comments: true
 
 ---

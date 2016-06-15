@@ -8,6 +8,7 @@ tags:
 - activerecord
 - Mongoid
 categories: []
+redirect_from: /posts/2012/02/21/migrate-from-mongoid-to-activerecord
 comments: true
 
 ---

@@ -10,6 +10,7 @@ tags:
 - Grape
 - Doorkeeper
 categories: []
+redirect_from: /posts/2013/10/10/oauth2-tutorial-grape-api-doorkeeper
 comments: true
 
 ---

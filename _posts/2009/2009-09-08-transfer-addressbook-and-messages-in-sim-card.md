@@ -5,6 +5,7 @@ published: true
 date: 2009-09-08 00:00
 tags: []
 categories: []
+redirect_from: /posts/2009/09/08/transfer-addressbook-and-messages-in-sim-card
 comments: true
 
 ---

@@ -5,6 +5,7 @@ published: true
 date: 2010-05-20 00:00
 tags: []
 categories: []
+redirect_from: /posts/2010/05/20/attending-in-cram-school-costs-gt-40k
 comments: true
 
 ---

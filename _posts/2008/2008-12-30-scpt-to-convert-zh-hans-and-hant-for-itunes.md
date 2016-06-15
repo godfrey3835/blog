@@ -5,6 +5,7 @@ published: true
 date: 2008-12-30 00:00
 tags: []
 categories: []
+redirect_from: /posts/2008/12/30/scpt-to-convert-zh-hans-and-hant-for-itunes
 comments: true
 
 ---
