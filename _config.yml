@@ -13,7 +13,7 @@ feedburner_url: https://feeds.feedburner.com/chitsaou
 
 google_analytics_id: UA-27155466-1
 
-permalink: /posts/:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title.html
 
 # Build settings
 # markdown: redcarpet
