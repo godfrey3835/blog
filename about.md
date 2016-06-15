@@ -12,14 +12,13 @@ I love Japan and I'm also an Anime fan.
 ## Contact
 
 * `ducksteven at gmail dot com`
-* Facebook: [chitsaou](https://facebook.com/chitsaou)
+* Facebook: [yorkxin](https://facebook.com/yorkxin)
 * Twitter: [@yorkxin](https://twitter.com/yorkxin)
 * Github: [chitsaou](https://github.com/chitsaou)
-* [Linked-In Page](http://tw.linkedin.com/pub/yu-cheng-chuang/3/1b7/198)
+* LinkedIn: [linkedin.com/in/yorkxin](https://linkedin.com/in/yorkxin)
 
 ## Specialities
 
 * Ruby on Rails
 * JavaScript, jQuery, CoffeeScript
 * HTML + CSS (SCSS / Compass)
-
