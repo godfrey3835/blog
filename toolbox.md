@@ -23,25 +23,14 @@ table td:nth-child(3) {
 
 | 名 | 何 | $ |
 |----|----|---|
-| [Sublime Text 3](http://www.sublimetext.com/) | 很好很強大的 code 編輯器 | Free / US$70 |
+| [Atom](https://atom.io) | 很好很強大的 code 編輯器 | Free |
+| [Sublime Text 3](http://www.sublimetext.com/) | 用來快速改大檔的編輯器 | Free / US$70 |
 | [MacVim](https://code.google.com/p/macvim/) | GUI 版的 VIM | Free |
-| [TextWrangler](http://www.barebones.com/products/textwrangler/) | code 編輯器，特色在於可以處理各種編碼 | Free |
+| [TextWrangler](http://www.barebones.com/products/textwrangler/) | 用來處理各種編碼的編輯器 | Free |
 | [Mou](http://mouapp.com/) | Markdown 編輯器，內建即時預覽，惟缺 GFM | Free (Beta 版) |
 | [0xED](http://www.suavetech.com/0xed/) | 二進位編輯器 | Free |
 
 此外在 OS X 的編輯區按鍵（Home / End / PgUp / PgDn）行為跟 Windows 不同，我比較喜歡 Windows 的行為，所以有改裝 OS X 的按鍵規則，請參考 https://gist.github.com/chitsaou/3422794 。
-
-### SublimeText 3
-
-我的設定檔： https://gist.github.com/chitsaou/3422794
-
-以下是值得一提的外掛：
-
-| 名 | 何 |
-|----|----|
-| [Railscasts Extended](https://github.com/jzelenkov/sublime-railscasts-extended) | 目前使用的 editor theme |
-| [SublimeLiner](https://github.com/SublimeLinter/SublimeLinter-for-ST2) | 自動在 SublimeText 裡面做 Code Linting (含 jsHint 整合) |
-| [CTags](https://github.com/SublimeText/CTags) | 自動在 SublimeText 裡面做 [CTags](http://ctags.sourceforge.net) code 索引 |
 
 ## 日常生活
 
@@ -49,8 +38,7 @@ table td:nth-child(3) {
 |----|----|---|
 | [Homebrew](http://brew.sh) | Package Manager for OS X ，必裝不解釋 | Free |
 | [iTerm2](http://www.iterm2.com) | 終端機，可以分割視窗，優於 OS X 內建者 | Free |
-| [Welly](https://code.google.com/p/welly/) | 上 BBS 用，支援 SSH，源自國產 [Nally](http://yllan.org/app/Nally/) | Free |
-| [鼠鬚管](http://code.google.com/p/rimeime/) | 中文輸入法，有繁體拼音，[可裝嘸蝦米](http://blog.yorkxin.org/posts/2013/12/10/use-boshiamy-in-squirrel) | Free |
+| [PttChrome](https://chrome.google.com/webstore/detail/pttchrome/hhnlfapopmaimdlldbknjdgekpgffmbo?gl=TW&hl=zh-TW) | 上 BBS 用，支援 SSH | Free |
 | [Input Fonts](http://input.fontbureau.com/) | 漂亮的寫程式用字型 | Free |
 | [Source Code Pro](https://github.com/adobe/source-code-pro) | Adobe 出品寫程式用字型 | Free |
 | [Source Sans Pro](https://github.com/adobe/source-sans-pro) | Source Sans Pro 的 Sans-Serif (P) 版本 | Free |
@@ -58,7 +46,7 @@ table td:nth-child(3) {
 | [Alfred](http://www.alfredapp.com/) | 秒開 App + Workflow Query (Powerpack) | Free / £17 |
 | [Copy as Markdown](https://chrome.google.com/webstore/detail/copy-as-markdown/fkeaekngjflipcockcnpobkpbbfbhmdn) | 在 Chrome 拷貝超連結或圖片成 Markdown | Free (我做的) |
 | [Native URL Shortener](https://chrome.google.com/webstore/detail/native-url-shortener/ngmiekalinhgehhfjbbiabodfeahckhe) | 縮址工具，特點在於有官方縮址就用官方 (如 youtu.be) | Free |
-| [VMware Fusion](http://www.vmware.com/products/fusion/) | 虛擬機，灌 Windows 用 | US$59.99 |
+| [VirtualBox](https://www.virtualbox.org/) | 虛擬機，灌 Windows 用 | Free |
 
 ## 終端機 (Terminal) 用
 
@@ -87,6 +75,7 @@ Chrome, Firefox, IE 內建的 Developer Tool 就不列了。
 | [pry-byebug](https://github.com/deivid-rodriguez/pry-byebug) | Ruby 2 的 CLI Debugger | Free |
 | [better\_errors](https://github.com/charliesome/better_errors) | 給 Rails 用的即時 Error Console | Free |
 | [mitmproxy](http://mitmproxy.org) | HTTP Logger，相當於 Windows 的 [Fiddler](http://www.telerik.com/fiddler) | Free |
+| [GitUp](http://gitup.co/) | Git 的視覺化操作工具 | Free |
 | [GitX (R)](http://rowanj.github.io/gitx/) | Git 的視覺化，追 blame 特別好用 | Free |
 | [LiveReload](http://livereload.com) | CSS / JS 存檔即時在前端載入 | 通訊協定 Free / App $9.99 |
 | [CSS Reloader](https://chrome.google.com/webstore/detail/css-reloader/dnfpcpfijpdhabaoieccoclghgplmpbd) | 強制重新載入目前網頁的 CSS (Chrome 用) | Free |
@@ -101,15 +90,15 @@ Chrome, Firefox, IE 內建的 Developer Tool 就不列了。
 | 名 | 何 | $ |
 |----|----|---|
 | [Sequel Pro](http://www.sequelpro.com/) | MySQL 連線程式，用途相當於 phpMyAdmin | Free |
-| [PG Commander](https://eggerapps.at/pgcommander/) | PostgreSQL 連線程式，用途同上 | Free / US$39 |
 | [PSequel](http://www.psequel.com/) | PostgreSQL 連線程式，用途同上 | Free |
+| [PG Commander](https://eggerapps.at/pgcommander/) | PostgreSQL 連線程式，用途同上 | Free / US$39 |
 | [Postgres.app](http://postgresapp.com/) | 一鍵開 PostgreSQL Server | Free |
 
 ## 文件查詢
 
 | 名 | 何 | $ |
 |----|----|---|
-| [Dash](http://kapeli.com/dash) | 萬能離線文件查詢器，再也不需要上網找文件 | NT$590 |
+| [Dash](http://kapeli.com/dash) | 萬能離線文件查詢器，再也不需要上網找文件 | NT$750 |
 | [Rubydoc.info](http://rubydoc.info) | Gem 文件查詢 | - |
 | [Mozilla Developer Network](https://developer.mozilla.org/en-US/) | HTML / CSS / JavaScript 前端文件查詢，有 Mozilla 掛保證的正確（Dash 可下載離線版） | - |
 | [Unicode Checker](http://earthlingsoft.net/UnicodeChecker/) | 離線 Unicode 資料庫速查，含 Unihan、轉碼器 | Free |
