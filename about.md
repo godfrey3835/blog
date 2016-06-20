@@ -25,4 +25,5 @@ I'm a web developer familiar with Ruby on Rails and front-end JavaScripts. I am 
 ## Interests in
 
 * Anime
+* Railway
 * Typography
