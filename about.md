@@ -21,9 +21,12 @@ I'm a web developer familiar with Ruby on Rails and front-end JavaScripts. I am 
 * Ruby on Rails
 * Vanilla JavaScript, React.js, jQuery, and CoffeeScript
 * HTML & CSS
+* And other Web Development things
 
 ## Interests in
 
 * Anime
-* Railway
 * Typography
+* Railway
+* Linguistics
+* History
