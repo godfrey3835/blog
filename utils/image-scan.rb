@@ -23,15 +23,16 @@ class ImageScan
       metadata = extract_metadata(basename)
 
       images = urls.map do |url|
-        filename = URI.parse(url).path.split('/').last
+        img_filename = URI.parse(url).path.split('/').last
 
         OpenStruct.new({
-          filename: filename,
+          filename: img_filename,
           url: url
         })
       end
 
       index[basename] = OpenStruct.new({
+        path: path,
         year: metadata[:year],
         month: metadata[:month],
         day: metadata[:day],
