@@ -31,7 +31,7 @@ comments: true
 
 到目前為止有以下的 commit history：
 
-[![](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-00-58-36.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-00-58-36.png)
+[![](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-00-58-36.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-00-58-36.png)
 
 `style` 完成了一小部份，而接下來要修飾的頁面是 `master` 裡面有改過的，如何讓 `style` 可以繼承 `master` 呢？就是用 rebase 把 `style` branch 給接到 `master` 後面了，因為 rebase 是「重新定義基準點」。就像是在稼接時，把新枝的根給「接」在末梢上。
 
@@ -41,7 +41,7 @@ rebase 的基本指令是 `git rebase <new base-commit>` ，意思是說，把�
 
 完成之後，圖變這樣：
 
-[![](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-00-38.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-00-38.png)
+[![](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-01-00-38.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-00-38.png)
 
 果然順利接起來了。
 
@@ -59,7 +59,7 @@ rebase 的基本指令是 `git rebase <new base-commit>` ，意思是說，把�
 
 接著再開個新的 branch 叫 `list` ，專門改學生清單，同時<del>另一個人</del>也在改 `style` 這個 branch ，修飾網頁的整體裝飾。改啊改，變成這樣分叉的兩條線：
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-14-55.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-14-55.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-01-14-55.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-14-55.png)
 
 `list` 改到一個段落，沒有問題了，就想 merge 進 `master` 。在 `master` branch 做
 
@@ -67,13 +67,13 @@ rebase 的基本指令是 `git rebase <new base-commit>` ，意思是說，把�
 
 這時 git 發現，剛好 `master` 直接指到 `list` 的 **HEAD** commit 也行 ，所以 git 直接就改了 `master` 的 commit ID ，也就是所謂的 **fast-forward**，熟悉 C 語言的同學應該對這種指標移動不陌生。完成之後就是這樣：
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-16-30.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-16-30.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-01-16-30.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-16-30.png)
 
 ## `rebase --onto`: 指定要從哪裡開始接枝
 
 `list` 繼續改，`style` 還是繼續改，變這樣：
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-26-05.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-26-05.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-01-26-05.png)](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-01-26-05.png)
 
 現在 `style` 要開始裝飾學生清單了，而學生清單是 `list` 這個 branch 在改的。於是 `style` 應該要 rebase 到 `list` ，可是這時管 `list` 的說，我後面幾個 commits 還沒敲定，你先拿 `64a00b7e (add their ages)` 這個 commit 當基準，這我改好了。所以這時候，應該要把 `style` 這個 branch 接到 `64a00b7e` 的後面。
 
@@ -85,7 +85,7 @@ rebase 的基本指令是 `git rebase <new base-commit>` ，意思是說，把�
 
 再看一下 commit history：
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-26-05.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-26-05.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-01-26-05.png)](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-01-26-05.png)
 
 現在 `style` 是 based on `dc39a81e (add some students)`，要改成 based on `64a00b7e (add their ages)`，也就是
 
@@ -96,7 +96,7 @@ rebase 的基本指令是 `git rebase <new base-commit>` ，意思是說，把�
 
 	git rebase --onto 64a00b7e dc39a81e
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-36-05.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-36-05.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-01-36-05.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-01-36-05.png)
 
 果然達到了目的，`style` 現在是 based on `64a00b7e` 了（當然 commit IDs 也都不同了）。
 
@@ -104,7 +104,7 @@ rebase 的基本指令是 `git rebase <new base-commit>` ，意思是說，把�
 
 接著改 `style` 的人修改了學生清單的樣式，可是他很機車，他要改 `index.html` 裡面的東西（實際情況是，`list` 裡寫了一個 `table`，但寫 css 總要有些 `class` 或 `id` 的 attributes 才能設定）。剛好改 `list` 的人也在他自己的 branch 裡面改，這時候，在 rebase 試著 re-apply commits 的過程中，必定會產生 conflict。
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-02-12-081.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-02-12-081.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-02-12-081.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-02-12-081.png)
 
 現在 `list` 要利用到 `style` 裡面修飾好的樣式，在這個情況下，就是把 `list` 給 rebase 到 `style` 上面，也就是在 `list` branch 做 `git rebase style` 。不過你會看到這個：
 
@@ -125,13 +125,13 @@ rebase 的基本指令是 `git rebase <new base-commit>` ，意思是說，把�
 
 完成以後就會像這樣：
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-02-22-47.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-02-22-47.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-25-at-02-22-47.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-25-at-02-22-47.png)
 
 ## Interactive Mode: <del>偷天換日</del>，自定重新 commit 的詳細步驟
 
 接著 `style` 和 `list` 又陸續改了一些東西，主要是 `list` 裡面加了表單元件，而 `style` 則繼續修飾網頁整體設計。到了一個段落，該輪到 `style` 修飾 `list` 的表單了。目前的 commit history 長這樣：
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-17-53-44.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-17-53-44.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-29-at-17-53-44.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-17-53-44.png)
 
 不過在 `style` 要 rebase 到 `list` 上面之前，管 `list` 的人想把 `list` 上面的一些 commits 給整理過，因為他發現有這些問題：
 
@@ -201,7 +201,7 @@ form to add more students
 
 再看 commit history ，的確達到了目的，而且 `list` 這個 branch 一樣還是 based on `0580eab8` ，後面那些剛剛 rebase 過的 commits 統統換了 commit ID ：
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-18-21-28.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-18-21-28.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-29-at-18-21-28.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-18-21-28.png)
 
 ### 合併 commits
 
@@ -224,7 +224,7 @@ pick e323dbc add gender select bo
 
 完成後再看 commit history ，的確合併了：
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-18-24-50.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-18-24-50.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-29-at-18-24-50.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-18-24-50.png)
 
 ### 修改、拆散 commit 內
 
@@ -275,11 +275,11 @@ pick 4dbcf49 add gender select box
 
 現在打開 log 看，拆成兩個啦！
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-20-18-30.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-20-18-30.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-29-at-20-18-30.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-20-18-30.png)
 
 掌管 `list` branch 的人折騰完了，便告訴管 `style` 的說，可以 rebase 了，<del>git 再度拯救了苦難程序員的一天</del>。
 
-[![image](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-21-04-34.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-21-04-34.png)
+[![image](/images/2011/2011-07-29-git-rebase/screen-shot-2011-07-29-at-21-04-34.png)](http://chitsaou.files.wordpress.com/2011/07/screen-shot-2011-07-29-at-21-04-34.png)
 
 ---
 

@@ -33,7 +33,7 @@ comments: true
 
 大概像這樣（其實下圖的 markdown code 我也是直接用這個 extension 複製的… 超懶人 XD）：
 
-![](http://cl.ly/42293N0b0V0R011U1s1G/Screen%20Shot%202012-03-02%20at%2001.40.37.png)
+![](/images/2012/2012-03-02-copy-as-markdown/Screen Shot 2012-03-02 at 01.40.37.png)
 
 ## Known Issues
 
@@ -67,7 +67,7 @@ comments: true
 
 最後要付 US$5.00 的一次性註冊費，這麼便宜當然不介意了。不過我竟然看到這個畫面：
 
-[![](http://cl.ly/1E1r120E2d300W2b0r3C/Screen%20Shot%202012-03-02%20at%2001.48.09.png)](http://cl.ly/1E1r120E2d300W2b0r3C)
+[![](/images/2012/2012-03-02-copy-as-markdown/Screen Shot 2012-03-02 at 01.48.09.png)](http://cl.ly/1E1r120E2d300W2b0r3C)
 
 五樓你評評理啊！當然我在姓名之間加入一個空格就通過了 Orz
 

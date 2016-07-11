@@ -126,7 +126,7 @@ Doorkeeper provides everything that an Authorization Server needs.
 
 After Authorization Server is built, we can now create a new Client. Open `/oauth/applications/new` and fill `http://localhost:12345/auth/demo/callback` in Redirect URI field, and submit. There does not have to be a web server on localhost:12345. We can still grab the grant code or token for testing.
 
-![oauth2-new-client.png](http://user-image.logdown.io/user/2580/blog/2567/post/145023/1wLQZN9CS9SixjFgRaq1_oauth2-new-client.png)
+![oauth2-new-client.png](/images/2013/2013-11-05-oauth2-tutorial-grape-api-doorkeeper-en/1wLQZN9CS9SixjFgRaq1_oauth2-new-client.png)
 
 ### Step 3.2: Get Access Token
 
@@ -158,7 +158,7 @@ Now the Client has got the Grant Code. According to the spec, the Client should 
 
 Because there are too many arguments to fill, here I put the screenshot of [Postman](http://www.getpostman.com/). Fill the form and hit Send, then you'll get the Access Token!
 
-![oauth2-token-request-en.png](http://user-image.logdown.io/user/2580/blog/2567/post/147080/SbFoCbPQTB2S9gvuXWLR_oauth2-token-request-en.png)
+![oauth2-token-request-en.png](/images/2013/2013-11-05-oauth2-tutorial-grape-api-doorkeeper-en/SbFoCbPQTB2S9gvuXWLR_oauth2-token-request-en.png)
 
 ## Step 4: Build the Guard on Resource Server
 

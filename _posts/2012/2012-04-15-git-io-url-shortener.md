@@ -23,7 +23,7 @@ However, if you *often* need to shorten an URL on GitHub.com, it might be  annoy
 
 I made a [Chrome Extension](https://chrome.google.com/webstore/detail/baceaeopmlhkjbljoiinmbnnmpokgiml) to do that in a really easy way.  When visiting a page on GitHub, you'll see a small **git.io** icon at the end of address bar, click it, and the shortened URL will be generated.  You can copy it to the clipboard by clicking on the shortened URL.
 
-[![Git.io URL Shortener Demo](http://cl.ly/462O1f1r2n0H1j0I0b00/Git.io%20URL%20Shortener%20Demo.png)](http://cl.ly/462O1f1r2n0H1j0I0b00)
+[![Git.io URL Shortener Demo](/images/2012/2012-04-15-git-io-url-shortener/Git.io URL Shortener Demo.png)](http://cl.ly/462O1f1r2n0H1j0I0b00)
 
 ## Get It Now!
 
@@ -112,4 +112,4 @@ Although I seldom need to generate shortened URL for a GitHub URL, whenever I ne
 
 I think this meme represents what I have done precisely, so I'd like to close this article with it:
 
-[![](http://cl.ly/0N1T0V2W2G3N3G1n0k2b/Git%20io%20-%20I%20dont%20always.jpeg)](http://cl.ly/0N1T0V2W2G3N3G1n0k2b)
+[![](/images/2012/2012-04-15-git-io-url-shortener/Git io - I dont always.jpeg)](http://cl.ly/0N1T0V2W2G3N3G1n0k2b)

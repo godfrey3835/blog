@@ -126,7 +126,7 @@ Doorkeeper 開的 Routes 有這些：
 
 蓋完 Authorization Server 之後，要去開一個 Client 。可以打開 `/oauth/applications` ，其中 Client 的 redierct URI 填入 `http://localhost:12345/auth/demo/callback` ，實際上沒有跑 Web server 在 localhost:12345 也沒關係，最終目的是拿到 code 或 token。
 
-![oauth2-new-client.png](http://user-image.logdown.io/user/2580/blog/2567/post/145023/1wLQZN9CS9SixjFgRaq1_oauth2-new-client.png)
+![oauth2-new-client.png](/images/2013/2013-10-10-oauth2-tutorial-grape-api-doorkeeper/1wLQZN9CS9SixjFgRaq1_oauth2-new-client.png)
 
 ### Step 3.2: 拿取 Access Token
 
@@ -158,7 +158,7 @@ Doorkeeper 開的 Routes 有這些：
 
 因為要填的資料太多了，我抓一下 [Postman](http://www.getpostman.com/) 的畫面，填完最後按下「Send」就會拿到 Access Token 了！
 
-![oauth2-token-request-zh.png](http://user-image.logdown.io/user/2580/blog/2567/post/145023/YZa3unuQgSf2kUkoSMDF_oauth2-token-request-zh.png)
+![oauth2-token-request-zh.png](/images/2013/2013-10-10-oauth2-tutorial-grape-api-doorkeeper/YZa3unuQgSf2kUkoSMDF_oauth2-token-request-zh.png)
 
 ## Step 4: 造 Resource Server 上的 Guard
 

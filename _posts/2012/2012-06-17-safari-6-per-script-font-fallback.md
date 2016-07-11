@@ -41,4 +41,4 @@ comments: true
 
 至少你會看到像樣一點的英文和數字了。因為我把系統字體改成 Hiragino Sans GB ，所以你看到的中文字會跟我看到的不太一樣。嗯總之英文和數字變回 Helvetica 了。
 
-[![](http://cl.ly/1O0p011L062C190E2z2V/Safari%206%20Font%20Fix.png)](http://cl.ly/1O0p011L062C190E2z2V)
+[![](/images/2012/2012-06-17-safari-6-per-script-font-fallback/Safari 6 Font Fix.png)](http://cl.ly/1O0p011L062C190E2z2V)
