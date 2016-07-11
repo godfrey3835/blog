@@ -1,3 +1,4 @@
+# Run the printed script with `aria2c -i urls.txt`
 require "uri"
 require_relative "./image-scan"
 require_relative "./image-map"
