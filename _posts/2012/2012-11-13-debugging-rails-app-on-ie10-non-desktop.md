@@ -24,7 +24,7 @@ Windows 8 上市之際，地球上又出現了一個新的瀏覽器，叫做 Int
 
 那 IE10 有什麼不同的呢？因為 IE10 在 Windows 8 同時有 Metro UI 和桌面版，如果用 Metro UI 的 IE10 打開 `http://railsapp.dev` 要測網站的話，就會出現「無法顯示此網頁」：
 
-[![](http://cl.ly/image/3A2c460x2q2W/metro-ie10-connection-failed.png)](http://cl.ly/image/3A2c460x2q2W)
+[![](/images/2012/2012-11-13-debugging-rails-app-on-ie10-non-desktop/metro-ie10-connection-failed.png)](http://cl.ly/image/3A2c460x2q2W)
 
 這個原因是：
 
@@ -43,17 +43,17 @@ Windows 8 上市之際，地球上又出現了一個新的瀏覽器，叫做 Int
 
 Metro UI 的 IE10 並沒有附 F12 開發者工具，要 debug 就有點難。不過還好「加強的受保護模式」可以在桌面版的 IE10 打開，就在「網際網路選項→進階→安全性→☑啟用加強的受保護模式」：
 
-[![](http://cl.ly/image/0z0z1I2t3q2H/enable-epm-on-desktop-ie10.png)](http://cl.ly/image/0z0z1I2t3q2H)
+[![](/images/2012/2012-11-13-debugging-rails-app-on-ie10-non-desktop/enable-epm-on-desktop-ie10.png)](http://cl.ly/image/0z0z1I2t3q2H)
 
 重新打開 IE10 桌面版，你就能重現「無法連線」的問題了。最棒（？）的是，可以在 F12 開發者工具裡面看到錯誤訊息：
 
-[![](http://cl.ly/image/1j1w0J022u2m/err-msg-on-ie10-epm-blocking-private-network-conneciton.png)](http://cl.ly/image/1j1w0J022u2m)
+[![](/images/2012/2012-11-13-debugging-rails-app-on-ie10-non-desktop/err-msg-on-ie10-epm-blocking-private-network-conneciton.png)](http://cl.ly/image/1j1w0J022u2m)
 
 ## 解法：「信任的網站」
 
 那怎麼解決呢？只要把 `http://railsapp.dev` 加入「信任的網站」就行了，在「網際網路選項→安全性」，點選「信任的網站」，按下「網站…」就能新增之。不過可惜沒辦法直接指定 `http://*.dev` 的頂級網域：
 
-[![](http://cl.ly/image/3X1D0I2z2O3H/add-to-trusted-zone.png)](http://cl.ly/image/3X1D0I2z2O3H)
+[![](/images/2012/2012-11-13-debugging-rails-app-on-ie10-non-desktop/add-to-trusted-zone.png)](http://cl.ly/image/3X1D0I2z2O3H)
 
 這樣就可以了。
 

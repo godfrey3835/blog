@@ -15,7 +15,7 @@ comments: true
 ---
 使用嘸蝦米，證明
 
-![Screen Shot 2013-12-05 at 00.45.57.png](http://user-image.logdown.io/user/2580/blog/2567/post/165576/YoH4WwNDRN6dE5No4yU4_Screen%20Shot%202013-12-05%20at%2000.45.57.png)
+![Screen Shot 2013-12-05 at 00.45.57.png](/images/2013/2013-12-10-use-boshiamy-in-squirrel/YoH4WwNDRN6dE5No4yU4_Screen Shot 2013-12-05 at 00.45.57.png)
 
 ## What?
 
@@ -41,17 +41,17 @@ comments: true
 
 **日文漢字模式** - 另一個 table ，註冊成另一個輸入法。
 
-![Screen Shot 2013-12-05 at 01.07.27.png](http://user-image.logdown.io/user/2580/blog/2567/post/165576/ORswcJpWQ7WOUHivlBIc_Screen%20Shot%202013-12-05%20at%2001.07.27.png)
+![Screen Shot 2013-12-05 at 01.07.27.png](/images/2013/2013-12-10-use-boshiamy-in-squirrel/ORswcJpWQ7WOUHivlBIc_Screen Shot 2013-12-05 at 01.07.27.png)
 
 **漢語拼音輸入模式** - RIME 內建的「切換到拼音」的輸入方式，支援反查。按 <kbd>&#96;</kbd> 鍵進入拼音模式，我很想改成 `';` <del>但試了很久試不出來</del>。跟官蝦的注音一樣，是臨時不會拆的時候應急用的。附帶一提，因為是啟動 RIME 內建的拼音輸入法，所以可以以詞為單位輸入。（話說「`han`」竟然沒有「和」這個有點兩光啊……）
 
 **Update**: 改好了，從 v0.2.0 開始是用 `';` 來切換到拼音模式
 
-![Screen Shot 2013-12-11 at 21.39.35.png](http://user-image.logdown.io/user/2580/blog/2567/post/165576/W0D6Mjd3Syu733JET4Nb_Screen%20Shot%202013-12-11%20at%2021.39.35.png)
+![Screen Shot 2013-12-11 at 21.39.35.png](/images/2013/2013-12-10-use-boshiamy-in-squirrel/W0D6Mjd3Syu733JET4Nb_Screen Shot 2013-12-11 at 21.39.35.png)
 
 **找不到字碼 fallback 到英文輸入**，例如：
 
-![Screen Shot 2013-12-05 at 01.03.58.png](http://user-image.logdown.io/user/2580/blog/2567/post/165576/D337QUufRxK0OuR1mkPc_Screen%20Shot%202013-12-05%20at%2001.03.58.png)
+![Screen Shot 2013-12-05 at 01.03.58.png](/images/2013/2013-12-10-use-boshiamy-in-squirrel/D337QUufRxK0OuR1mkPc_Screen Shot 2013-12-05 at 01.03.58.png)
 
 ## 不支援的功能（官蝦支援的）
 
@@ -72,7 +72,7 @@ comments: true
 
 接著，準備正版嘸蝦米的 ibus 字根表，事實上很好找，只要買過正版（無論是 Windows 還是 Mac），就可以去官方網站下載。
 
-![Screen Shot 2013-12-05 at 01.32.03.png](http://user-image.logdown.io/user/2580/blog/2567/post/165576/QkO7UI1AR1W6v31cHeIp_Screen%20Shot%202013-12-05%20at%2001.32.03.png)
+![Screen Shot 2013-12-05 at 01.32.03.png](/images/2013/2013-12-10-use-boshiamy-in-squirrel/QkO7UI1AR1W6v31cHeIp_Screen Shot 2013-12-05 at 01.32.03.png)
 
 把 `boshiamy_*.db` 放到轉換程式的資料夾裡面，然後執行：
 

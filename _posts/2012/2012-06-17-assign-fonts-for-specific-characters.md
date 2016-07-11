@@ -16,7 +16,7 @@ comments: true
 
 先曬一下結果的畫面，也可以用 Chrome 或 Safari ，[打開這裡看 demo](http://playground.yorkxin.org/mixed-font-face/)（目前 Firefox 不支援）：
 
-[![](http://cl.ly/0I3q2y0k2r2M212C3u3o/Screen%20Shot%202012-06-17%20at%2017.51.48.png)](http://cl.ly/0I3q2y0k2r2M212C3u3o)
+[![](/images/2012/2012-06-17-assign-fonts-for-specific-characters/Screen Shot 2012-06-17 at 17.51.48.png)](http://cl.ly/0I3q2y0k2r2M212C3u3o)
 
 以上**全都是用 CSS 做出來的**，不是一個一個反白再選字體（要是這樣我也不用寫一篇了）。
 
@@ -40,7 +40,7 @@ comments: true
 
 這樣子的話，在 CSS 裡面就可以使用 `font-family: MyCustomFont` ，但是它只會套用在 U+00 到 U+7F 這些字元（[Basic Latin](http://en.wikipedia.org/wiki/Basic_Latin_%28Unicode_block%29)，即 ASCII），即使 Helvetica 和 Arial 有提供其他字元，例如帶有重音符號的拉丁字母 `é` （U+00E9，在 [Latin-1 Supplement block](http://en.wikipedia.org/wiki/Latin-1_Supplement_%28Unicode_block%29)），它還是不會套用這個字體。
 
-![](http://cl.ly/1v0z3n2N1Y0E3g0R0X3B/Screen%20Shot%202012-06-17%20at%2021.36.01.png)
+![](/images/2012/2012-06-17-assign-fonts-for-specific-characters/Screen Shot 2012-06-17 at 21.36.01.png)
 
 ### unicode-range 的寫法
 
@@ -103,7 +103,7 @@ body {
 
 最後的結果，就是拉丁字、注音符號、日文假名用了另一種字體，而其他的文字則是用 Heiti TC；在 Windows 上面，則是使用微軟正黑體（假設使用者沒有自行安裝 Mac OS X 的字體）。
 
-[![](http://cl.ly/3b2L352q1J1o2v2S0d2p/Screen%20Shot%202012-06-17%20at%2021.42.43.png)](http://cl.ly/3b2L352q1J1o2v2S0d2p)
+[![](/images/2012/2012-06-17-assign-fonts-for-specific-characters/Screen Shot 2012-06-17 at 21.42.43.png)](http://cl.ly/3b2L352q1J1o2v2S0d2p)
 
 ## 覆寫 Generic Family
 
@@ -119,7 +119,7 @@ body {
 
 並且把 `serif` 也加進來。[實際 demo 在此](http://playground.yorkxin.org/mixed-font-face/)。
 
-[![](http://cl.ly/0I3q2y0k2r2M212C3u3o/Screen%20Shot%202012-06-17%20at%2017.51.48.png)](http://cl.ly/0I3q2y0k2r2M212C3u3o)
+[![](/images/2012/2012-06-17-assign-fonts-for-specific-characters/Screen Shot 2012-06-17 at 17.51.48.png)](http://cl.ly/0I3q2y0k2r2M212C3u3o)
 
 ## 後記：Web Font
 

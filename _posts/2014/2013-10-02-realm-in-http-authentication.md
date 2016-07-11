@@ -11,7 +11,7 @@ comments: true
 ---
 最近在學 OAuth 2.0，在讀 spec 的時候，發現 Bearer Token 的 auth-param 有 `realm` 和 `scope` 。我一開始搞混，後來去查了 HTTP Basic Auth 裡面也有 `realm` ，在瀏覽器上面出現的效果就是像下圖箭頭指的地方：
 
-![](http://cl.ly/image/043j211v223m/http-basic-auth-realm.png)
+![](/images/2013/2013-10-02-realm-in-http-authentication/http-basic-auth-realm.png)
 
 且就算 realm 不同，瀏覽器都會試同樣一組帳號密碼，我試過[用 Sinatra 做一個微 App](https://github.com/chitsaou/http-basic-auth-demo) ，分別有以下的 routes：
 

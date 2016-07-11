@@ -17,7 +17,7 @@ comments: true
 
 結果一試之下不得了了！算一算加運費還跟九五樂府差不到 100 塊錢台幣，而且到貨超快！
 
-![2014-05-28 00.53.59 HDR.jpg](http://user-image.logdown.io/user/2580/blog/2567/post/201736/4XVTwz9S6WGd0gNq4I0x_2014-05-28%2000.53.59%20HDR.jpg)
+![2014-05-28 00.53.59 HDR.jpg](/images/2014/2014-05-28-got-my-first-cds-from-amazon-jp/4XVTwz9S6WGd0gNq4I0x_2014-05-28 00.53.59 HDR.jpg)
 
 <!--more-->
 
@@ -65,7 +65,7 @@ Amazon JP 商品網頁上的標價會加上 8% 的消費稅，對於外國人來
 
 海外運送是由 Amazon JP 指定的貨運公司，我的包裹是用 DHL 寄的（不確定有沒有別的公司），用貨運行的好處就是可以上網追蹤包裹寄到哪裡。
 
-![Screen Shot 2014-05-27 at 21.12.56.png](http://user-image.logdown.io/user/2580/blog/2567/post/201736/OzJSWPm0QgiaDurJ0t8Q_Screen%20Shot%202014-05-27%20at%2021.12.56.png)
+![Screen Shot 2014-05-27 at 21.12.56.png](/images/2014/2014-05-28-got-my-first-cds-from-amazon-jp/OzJSWPm0QgiaDurJ0t8Q_Screen Shot 2014-05-27 at 21.12.56.png)
 
 我的訂單是星期六晚上下訂的，星期日應該是沒上班所以沒處理，星期一早上十點左右收到出貨通知的 email，星期二午夜到台北（應該是空運），星期二早上十點快遞就上門了。
 
@@ -93,15 +93,15 @@ Amazon JP 商品網頁上的標價會加上 8% 的消費稅，對於外國人來
 
 ## 包裹狀況
 
-![写真 1.jpg](http://user-image.logdown.io/user/2580/blog/2567/post/201736/FCAbJbROTla8FgrvOHpo_%E5%86%99%E7%9C%9F%201.jpg)
+![写真 1.jpg](/images/2014/2014-05-28-got-my-first-cds-from-amazon-jp/FCAbJbROTla8FgrvOHpo_写真 1.jpg)
 
 其實也就是很普通的包裹，不過它刻意設計成不需要刀片就可以拆開來的包裏，相比之下，PChome 還需要用美工刀切開來，實在太<ruby>平凡<rp>（</rp><rt>ㄒㄩㄣˋ</rt><rp>）</rp></ruby>了啊。
 
-![写真 2.jpg](http://user-image.logdown.io/user/2580/blog/2567/post/201736/Za9a99qBT9OA4MWnJoNz_%E5%86%99%E7%9C%9F%202.jpg)
+![写真 2.jpg](/images/2014/2014-05-28-got-my-first-cds-from-amazon-jp/Za9a99qBT9OA4MWnJoNz_写真 2.jpg)
 
 注意到上面有個 QRcode 沒？掃出來的網址是 [http://amazon.co.jp/pfqr](http://amazon.co.jp/pfqr)，那是你可以上網去反應包裹的狀態，如果你覺得包裝得不好，太早或太晚到，甚至內容物本身包裝不良（其實是廠商的事但 Amazon 順便問你），都可以在這裡抱怨：
 
-![Screen Shot 2014-05-28 at 01.56.40.png](http://user-image.logdown.io/user/2580/blog/2567/post/201736/OJkqWLc9Sgmdfh7ZGFLd_Screen%20Shot%202014-05-28%20at%2001.56.40.png)
+![Screen Shot 2014-05-28 at 01.56.40.png](/images/2014/2014-05-28-got-my-first-cds-from-amazon-jp/OJkqWLc9Sgmdfh7ZGFLd_Screen Shot 2014-05-28 at 01.56.40.png)
 
 畫面最下方還有一個檔案上傳框，如果包裝不良，你可以把包裝的狀況拍照上傳。
 

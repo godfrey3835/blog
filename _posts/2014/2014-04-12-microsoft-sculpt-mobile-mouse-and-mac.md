@@ -38,13 +38,13 @@ Here is the log when I record events in EventViewer of KeyRemap4MacBook. The ope
 
 And it actually works like a Command key: if you select a Finder item and try step 3, it will open "Info" window, just like pressing <kbd>Cmd+i</kbd> on keyboard.
 
-![Screen Shot 2014-04-12 at 21.52.18.png](http://user-image.logdown.io/user/2580/blog/2567/post/193424/uiTc2ucRReyfs9pyjwbh_Screen%20Shot%202014-04-12%20at%2021.52.18.png)
+![Screen Shot 2014-04-12 at 21.52.18.png](/images/2014/2014-04-12-microsoft-sculpt-mobile-mouse-and-mac/uiTc2ucRReyfs9pyjwbh_Screen Shot 2014-04-12 at 21.52.18.png)
 
 ## Disabling the Windows Button
 
 If you don't want it work anymore, you can disable that button in Keyboard system preferences. The downside is that, if you have a Microsoft keyboard connecting to that receiver, then your Windows key on that keyboard will be disabled too. (I don't have one so I don't care about that)
 
-![Screen Shot 2014-04-12 at 21.59.29.png](http://user-image.logdown.io/user/2580/blog/2567/post/193424/vC7Ymg9RiGIeUWoZmpBv_Screen%20Shot%202014-04-12%20at%2021.59.29.png)
+![Screen Shot 2014-04-12 at 21.59.29.png](/images/2014/2014-04-12-microsoft-sculpt-mobile-mouse-and-mac/vC7Ymg9RiGIeUWoZmpBv_Screen Shot 2014-04-12 at 21.59.29.png)
 
 ## Remapping the Windows Button
 
@@ -81,7 +81,7 @@ I downloaded 8.2.0 (v305) from Microsoft's website. Unfortunately the mouse is n
 
 BTW I tried Windows version too, and it is also not possible to remap the Windows button.
 
-![Screen Shot 2014-04-12 at 22.02.10.png](http://user-image.logdown.io/user/2580/blog/2567/post/193424/QJ7CNkJsQOu9HOBnFSe5_Screen%20Shot%202014-04-12%20at%2022.02.10.png)
+![Screen Shot 2014-04-12 at 22.02.10.png](/images/2014/2014-04-12-microsoft-sculpt-mobile-mouse-and-mac/QJ7CNkJsQOu9HOBnFSe5_Screen Shot 2014-04-12 at 22.02.10.png)
 
 Note: it seems that there is a bug in IntelliPoint for Mac: the remapping is not activated immediately after boot, until Microsoft Mouse system preferences is opened. [There is a workaround for that](https://discussions.apple.com/message/23562699#23562699).
 

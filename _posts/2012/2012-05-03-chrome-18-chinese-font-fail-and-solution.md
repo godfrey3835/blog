@@ -19,7 +19,7 @@ comments: true
 
 你會在 Facebook 、 Plurk 等網站看到「跟以前不太一樣的中文字」，例如以下是 Facebook 的字體在 Chrome 18 以前及 Chrome 18 的比較：
 
-[![](http://cl.ly/3V140u3q2W3m3K2d2Z45/chrome-18-font-windows.png)](http://cl.ly/3V140u3q2W3m3K2d2Z45)
+[![](/images/2012/2012-05-03-chrome-18-chinese-font-fail-and-solution/chrome-18-font-windows.png)](http://cl.ly/3V140u3q2W3m3K2d2Z45)
 
 甚至是在 Wikipedia 載入的過程中看到字體會跳動。有影片為證：
 
@@ -29,11 +29,11 @@ http://www.youtube.com/watch?v=_vvJakSs_Rk
 
 好死不死的是，在 OS X 的 Chrome 是把簡體中文換成 STHeiti （华文黑体，長得很像 Heiti SC ，也就是 OS X 預設的系統字體「黑體-繁」的簡體版），因為我把系統字體換成 Hiragino Sans GB ，所以就又看到了**天底下最醜的日文假名**：
 
-[![](http://cl.ly/3O3q462W1j0Z1S1J2X3r/chrome-18-kana.png)](http://cl.ly/3O3q462W1j0Z1S1J2X3r)
+[![](/images/2012/2012-05-03-chrome-18-chinese-font-fail-and-solution/chrome-18-kana.png)](http://cl.ly/3O3q462W1j0Z1S1J2X3r)
 
 還有，在 OS X 的繁體中文換成儷黑 Pro ，導致以往在 OS X 會自動 fallback 到系統字體 Helvetica 的拉丁字，現在全都走樣了：
 
-[![](http://cl.ly/0w3e2y1E3m1Y0s2c1p0k/chrome-18-latin.png)](http://cl.ly/0w3e2y1E3m1Y0s2c1p0k)
+[![](/images/2012/2012-05-03-chrome-18-chinese-font-fail-and-solution/chrome-18-latin.png)](http://cl.ly/0w3e2y1E3m1Y0s2c1p0k)
 
 完整的 test case 可以打開這個網頁： http://jsbin.com/IQeLOLI/1
 
@@ -80,7 +80,7 @@ Chrome 是我打開電腦到關閉電腦都會使用的軟體，一天到晚看�
 
 像是 **Wikipedia 字體不再亂跳**了、在 Windows 上面， **Facebook 終於回到原本的新細明體**了、在 **OS X 終於不用再看噁心的日文假名**了、**Helvetica 回來了**、<s>正直和良知也都回來了（誤）</s>。
 
-[![](http://cl.ly/3h1z1j1U2w1l010f3I2R/chrome-18-no-per-script-font-comparison.png)](http://cl.ly/3h1z1j1U2w1l010f3I2R)
+[![](/images/2012/2012-05-03-chrome-18-chinese-font-fail-and-solution/chrome-18-no-per-script-font-comparison.png)](http://cl.ly/3h1z1j1U2w1l010f3I2R)
 
 這個 Extension 使用了還在測試中的 [`chrome.experimental.fontSettings` API](http://code.google.com/chrome/extensions/beta/experimental.fontSettings.html) ，也就是這個 extension 可能哪天就不能用了。事實上我在寫這篇文章的同時，就發現了 Canary 上了[新版本的 API](http://code.google.com/chrome/extensions/dev/experimental.fontSettings.html) ，稍微有點不同，會導致原本在 Beta 版做的 extension 失效。
 
@@ -98,7 +98,7 @@ Chrome 是我打開電腦到關閉電腦都會使用的軟體，一天到晚看�
 
 我的設定方法是：**全部照抄「偏好設定」裡面的全域字體**，也就是讓作業系統去決定要用什麼中文字體，如下圖是我在 Windows 設定的方法（繁體、簡體都要改）：
 
-[![](http://cl.ly/0R3K1j452y3J130n0R0t/chrome-18-fontsettings-windows.png)](http://cl.ly/0R3K1j452y3J130n0R0t)
+[![](/images/2012/2012-05-03-chrome-18-chinese-font-fail-and-solution/chrome-18-fontsettings-windows.png)](http://cl.ly/0R3K1j452y3J130n0R0t)
 
 如果是 OS X ，預設應該是 Standard = Times, Serif = Times, Sans-Serif = Helvetica ，這樣設定不會吃虧。
 

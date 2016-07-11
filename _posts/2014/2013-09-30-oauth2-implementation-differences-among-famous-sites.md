@@ -154,7 +154,7 @@ Resource Owner Password Grant Flow 是自製的流程，叫做 Authorizations，
 
 GitHub 的 Mac GUI 應用程式就是用 OAuth 來存取資料的。你可以打開 Keychain Access ，找到 *"github.com/mac (you@example.com)"* 這個項目，按 Show Password 就可以看到 OAuth Access Token 了：
 
-![Screen Shot 2013-09-30 at 2.46.03 PM.png](http://user-image.logdown.io/user/2580/blog/2567/post/143112/xQ9h86TQDmXKQB5CKT7T_Screen%20Shot%202013-09-30%20at%202.46.03%20PM.png)
+![Screen Shot 2013-09-30 at 2.46.03 PM.png](/images/2013/2013-09-30-oauth2-implementation-differences-among-famous-sites/xQ9h86TQDmXKQB5CKT7T_Screen Shot 2013-09-30 at 2.46.03 PM.png)
 
 用同樣的 Access Token 可以 call API：
 

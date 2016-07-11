@@ -50,7 +50,7 @@ comments: true
 
 就在我搜尋的過程中，我在國史館的網站找到一份[文獻](http://163.29.208.22:8080/govsaleShowImage/connect_img.php?s=00101738900090036&e=00101738900090037)，根據推友 [@FreeLeaf](https://twitter.com/FreeLeaf) 的[翻譯](https://twitter.com/FreeLeaf/status/355651015292362752)，是台灣總督府專賣局收到的內部公文，要在 9 月 21 日起改回使用西部標準時（更正啟事：先前我寫錯成「專賣局發的公文」，感謝 [@FreeLeaf 再度指正](https://twitter.com/FreeLeaf/status/372228698209931264)）：
 
-[![](http://f.cl.ly/items/1M3f2e1W231N0U0v0J1Q/%E7%B8%BD%E4%BA%A4%E7%AC%AC506%E8%99%9F.jpg)](http://163.29.208.22:8080/govsaleShowImage/connect_img.php?s=00101738900090036&e=00101738900090037)
+[![](/images/2013/2013-08-26-time-zone-in-taiwan/總交第506號.jpg)](http://163.29.208.22:8080/govsaleShowImage/connect_img.php?s=00101738900090036&e=00101738900090037)
 
 *出處：[國史館網站](http://163.29.208.22:8080/govsaleShowImage/connect_img.php?s=00101738900090036&e=00101738900090037)*
 
@@ -66,7 +66,7 @@ comments: true
 
 **Update** (2014/07/03) 終於找到了官方的文件，在[臺灣總督府（官）報資料庫](http://db2.th.gov.tw/db2/view/index.php)找到的[檔案（需註冊）](http://db2.th.gov.tw/db2/view/showDataForm.php?CollectionNo=0072031018a005)、以及其[圖檔（免登入）](http://db2.th.gov.tw/db2/view/viewImg.php?imgcode=0072031018a&num=19&bgn=019&end=019&otherImg=&type=gener)
 
-[![jpeg.jpg](http://user-image.logdown.io/user/2580/blog/2567/post/93429/q2uLpUyGRc6vqKqclQl1_jpeg.jpg)](http://db2.th.gov.tw/db2/view/viewImg.php?imgcode=0072031018a&num=19&bgn=019&end=019&otherImg=&type=gener)
+[![jpeg.jpg](/images/2013/2013-08-26-time-zone-in-taiwan/q2uLpUyGRc6vqKqclQl1_jpeg.jpg)](http://db2.th.gov.tw/db2/view/viewImg.php?imgcode=0072031018a&num=19&bgn=019&end=019&otherImg=&type=gener)
 
 > 告示第三百八十六號
 >
@@ -116,7 +116,7 @@ comments: true
 遵照。」等因；奉此，自應遵辦，合行電希遵照，並轉飭屬遵照。臺灣省政府
 卅六申（刪）府人甲
 
-[![](http://cl.ly/image/0E0x0m0z3C0a/image2.gif)](http://subtpg.tpg.gov.tw/og/image2.asp?f=0360310AKZ431)
+[![](/images/2013/2013-08-26-time-zone-in-taiwan/image2.gif)](http://subtpg.tpg.gov.tw/og/image2.asp?f=0360310AKZ431)
 
 這些 bug 我已經寄信去告知中央氣象局網站了，他們給我的回信內容是，肯定它是 bug ，會再研究，但為免誤導，先把原本的網頁下架。我現在已經看不到[原本那個網頁](http://www.cwb.gov.tw/V7/astronomy/cdata/summert.htm)了，但 Google 又可以找到[另一個存在錯誤的網頁](http://www.cwb.gov.tw/V7/knowledge/astronomy/cdata/summert.htm)……。
 
