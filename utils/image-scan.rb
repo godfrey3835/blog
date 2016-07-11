@@ -1,5 +1,6 @@
 require "ostruct"
 require "uri"
+require "cgi"
 
 class ImageScan
   GLOB = File.expand_path("../_posts/**/*.md", __dir__)
@@ -23,7 +24,7 @@ class ImageScan
       metadata = extract_metadata(basename)
 
       images = urls.map do |url|
-        img_filename = URI.parse(url).path.split('/').last
+        img_filename = CGI::unescape URI.parse(url).path.split('/').last
 
         OpenStruct.new({
           filename: img_filename,
