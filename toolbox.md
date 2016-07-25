@@ -117,6 +117,7 @@ Chrome, Firefox, IE 內建的 Developer Tool 就不列了。
 
 ## 別人的工具箱
 
+* [awesome-mac](https://github.com/jaywcjlove/awesome-mac)
 * [hzlzh/Best-App: 收集&推荐优秀的 Apps (Mac OS & iOS)](https://github.com/hzlzh/Best-App)
 * [我的工具箱 - 高見龍](http://blog.eddie.com.tw/2012/01/04/my-toolbox/)
 
