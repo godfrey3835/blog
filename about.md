@@ -3,9 +3,9 @@ layout: page
 title: About
 ---
 
-Hi, I am Yu-Cheng Chuang, or yorkxin / chitsaou / 鴨七 on internet. I live in Taipei, Taiwan.
+Hi, I am Yu-Cheng Chuang, or yorkxin / chitsaou / 鴨七 on internet. A Taiwanese living in Tokyo, Japan.
 
-I'm a web developer familiar with Ruby on Rails and front-end JavaScripts. I am currently a freelancer developer.
+I'm a web developer familiar with Ruby on Rails and front-end JavaScripts.
 
 ## Contact
 
