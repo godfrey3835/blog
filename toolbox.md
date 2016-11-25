@@ -27,7 +27,6 @@ table td:nth-child(3) {
 | [Sublime Text 3](http://www.sublimetext.com/) | 用來快速改大檔的編輯器 | Free / US$70 |
 | [MacVim](https://code.google.com/p/macvim/) | GUI 版的 VIM | Free |
 | [TextWrangler](http://www.barebones.com/products/textwrangler/) | 用來處理各種編碼的編輯器 | Free |
-| [Mou](http://mouapp.com/) | Markdown 編輯器，內建即時預覽，惟缺 GFM | Free (Beta 版) |
 | [0xED](http://www.suavetech.com/0xed/) | 二進位編輯器 | Free |
 
 此外在 OS X 的編輯區按鍵（Home / End / PgUp / PgDn）行為跟 Windows 不同，我比較喜歡 Windows 的行為，所以有改裝 OS X 的按鍵規則，請參考 https://gist.github.com/chitsaou/3422794 。
@@ -39,6 +38,7 @@ table td:nth-child(3) {
 | [Homebrew](http://brew.sh) | Package Manager for OS X ，必裝不解釋 | Free |
 | [iTerm2](http://www.iterm2.com) | 終端機，可以分割視窗，優於 OS X 內建者 | Free |
 | [PttChrome](https://chrome.google.com/webstore/detail/pttchrome/hhnlfapopmaimdlldbknjdgekpgffmbo?gl=TW&hl=zh-TW) | 上 BBS 用，支援 SSH | Free |
+| [FiraCode](https://github.com/tonsky/FiraCode) | 內建 ligature 的寫程式用字型 | Free |
 | [Input Fonts](http://input.fontbureau.com/) | 漂亮的寫程式用字型 | Free |
 | [Source Code Pro](https://github.com/adobe/source-code-pro) | Adobe 出品寫程式用字型 | Free |
 | [Source Sans Pro](https://github.com/adobe/source-sans-pro) | Source Sans Pro 的 Sans-Serif (P) 版本 | Free |
@@ -78,7 +78,6 @@ Chrome, Firefox, IE 內建的 Developer Tool 就不列了。
 | [GitUp](http://gitup.co/) | Git 的視覺化操作工具 | Free |
 | [GitX (R)](http://rowanj.github.io/gitx/) | Git 的視覺化，追 blame 特別好用 | Free |
 | [LiveReload](http://livereload.com) | CSS / JS 存檔即時在前端載入 | 通訊協定 Free / App $9.99 |
-| [CSS Reloader](https://chrome.google.com/webstore/detail/css-reloader/dnfpcpfijpdhabaoieccoclghgplmpbd) | 強制重新載入目前網頁的 CSS (Chrome 用) | Free |
 | [ImageOptim](http://imageoptim.com/) | 圖片壓縮工具（有 CLI 版） | Free |
 | [Skala Color](http://bjango.com/mac/skalacolor/) | Programmer-Friendly 的調色盤，可以輸出 CSS 顏色和 Hex | Free |
 | [Modern.IE](http://modern.ie) | Microsoft 官方提供的 IE 測試用虛擬機 | Free |
